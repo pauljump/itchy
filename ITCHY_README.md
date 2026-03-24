@@ -6,7 +6,7 @@ Built for the [OpenAI Parameter Golf](https://github.com/openai/parameter-golf) 
 
 ## Why "Itchy"
 
-Every other submission takes a big model and squeezes it into 16MB — like handing someone a blanket that doesn't fit and telling them to make it work. Itchy asks: what if you just built something the right size?
+Like giving someone a wool blanket to keep them warm when the reason they were complaining was that they were itchy. Every other submission shrinks a big model into 16MB — solving the wrong problem. Itchy asks: what if you just built something the right size?
 
 ## The Thesis
 
