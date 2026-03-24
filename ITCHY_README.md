@@ -4,9 +4,9 @@ A 16MB language model designed to be small from birth — not a shrunken giant.
 
 Built for the [OpenAI Parameter Golf](https://github.com/openai/parameter-golf) challenge.
 
-## The Name
+## Why "Itchy"
 
-Named after "the itchy blanket." When something can't tell you it's uncomfortable, you sometimes force what works for you onto it — like wrapping a kid in a scratchy wool blanket because *you* know it's warm. Every other submission in this competition takes a big model's architecture and forces it into 16MB. Itchy asks: what if the model was never big?
+Every other submission takes a big model and squeezes it into 16MB — like handing someone a blanket that doesn't fit and telling them to make it work. Itchy asks: what if you just built something the right size?
 
 ## The Thesis
 
