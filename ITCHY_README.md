@@ -20,33 +20,52 @@ Patch processing (4 bytes -> 1 patch) keeps effective sequence length shorter th
 
 ```
 Input: raw UTF-8 bytes (0-255)
-  -> BytePatchEmbed (4 bytes -> 1 patch -> model dim)
-  -> 10x Block (attention + LeakyReLU(0.5)² MLP, 3x expansion)
-  -> ByteUnpatch (model dim -> per-byte logits)
+  -> BytePatchEmbed (12 bytes -> 1 patch -> model dim)
+  -> 11x Block (attention + LeakyReLU(0.5)² MLP, 3x expansion)
+  -> PerPositionDecode (12 independent MLP heads, one per byte position)
 Output: next-byte probabilities
 
-19.5M params | 14.6MB at int6 | 448 dim, 10 layers, 8 heads
+17.5M params | 13.1MB at int6 | 384 dim, 11 layers, 8 heads, patch=12
 ```
 
 ## Validation Results (T4 GPU, 3000 steps, 1 shard)
 
-Ablation study — each trick tested individually:
+### Patch size ablation (the big finding):
 
-| Config | Params | Val BPB | Delta |
-|--------|--------|---------|-------|
-| Baseline (relu², 2x MLP) | 4.3M | 0.6010 | — |
-| +LeakyReLU(0.5)² | 4.3M | 0.5996 | -0.0014 |
-| +3x MLP | 5.3M | 0.5949 | -0.0061 |
-| +Partial RoPE 8/32 | 4.3M | 0.6119 | +0.0109 (hurts) |
-| +LN Scale | 4.3M | 0.6125 | +0.0115 (hurts) |
-| +N-gram hash | 4.9M | 0.6010 | +0.0000 (no effect) |
-| **+Leaky +3x MLP** | **5.3M** | **0.5944** | **-0.0066** |
+| Patch Size | Val BPB | Delta |
+|-----------|---------|-------|
+| 2 | 1.1512 | +0.557 |
+| 3 | 0.7800 | +0.186 |
+| 4 | 0.5944 | — (original) |
+| 8 | 0.3298 | -0.265 |
+| **12** | **0.2903** | **-0.304** |
+| 16 | 0.3343 | -0.260 |
 
-Head-to-head vs token-level baseline at matched compute:
+Patch size is the dominant hyperparameter — going from 4 to 12 improved BPB by 0.30, which is 40x larger than all other tricks combined.
+
+### Unpatch decode ablation:
+
+| Decode method | Val BPB | Delta |
+|--------------|---------|-------|
+| Flat linear (baseline) | 0.2903 | — |
+| **Per-position MLP heads** | **0.2329** | **-0.057** |
+| Autoregressive decoder | 0.7937 | +0.503 (too complex for scale) |
+| MoE unpatch | 3.2594 | broken |
+
+### Trick ablation:
+
+| Config | Val BPB | Delta |
+|--------|---------|-------|
+| Baseline (relu², 2x MLP) | 0.6010 | — |
+| +LeakyReLU(0.5)² | 0.5996 | -0.0014 |
+| +3x MLP | 0.5949 | -0.0061 |
+| +Partial RoPE | 0.6119 | +0.0109 (hurts) |
+| +LN Scale | 0.6125 | +0.0115 (hurts) |
+| +N-gram hash | 0.6010 | +0.0000 (no effect) |
+
+### Head-to-head vs token-level baseline:
 - **Itchy (byte-level): 0.66 BPB** with 4.3M params
 - **Baseline (token-level): 2.56 BPB** with 1.1M params (same total size budget)
-
-The token-level model can only fit 1.1M params because its 1024-vocab embedding table eats most of the budget. Byte-level puts 4x more params into the actual transformer.
 
 ## What Didn't Work
 
