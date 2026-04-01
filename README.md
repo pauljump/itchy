@@ -74,18 +74,6 @@ Patch size is the dominant hyperparameter — going from 4 to 12 improved BPB by
 - **LN Scale per layer**: Same — helps at token level, hurts at byte level (+0.012 BPB).
 - **Hash n-gram embeddings**: Added 600K params for zero BPB improvement.
 
-## Status
-
-- [x] Model architecture (byte-level, LeakyReLU², 3x MLP)
-- [x] Ablation study on T4 (7 configs tested)
-- [x] Head-to-head vs token-level baseline
-- [x] MLX training loop (local Mac)
-- [x] CUDA training script (8xH100, ready to run)
-- [x] Byte data pipeline
-- [ ] Full training runs on H100s (waiting for compute grant)
-- [ ] 3-seed validation
-- [ ] Submission PR
-
 ## Running
 
 ```bash
