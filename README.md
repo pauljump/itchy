@@ -85,3 +85,7 @@ ITERATIONS=30 TRAIN_LOG_EVERY=10 .venv/bin/python train_itchy_mlx.py
 python data/convert_to_bytes.py --train-shards 80
 torchrun --standalone --nproc_per_node=8 train_itchy_final.py
 ```
+
+---
+
+**Part of a larger system.** See [pauljump/portfolio](https://github.com/pauljump/portfolio) for the full picture — 16 production apps, shared infrastructure, and the factory that builds them.
