@@ -1,7 +1,7 @@
 # Upgrading from Whetstone
 
 Usual is the current name of the same decision-history product. Its canonical source is
-[pauljump/itchy](https://github.com/pauljump/itchy). The original Itchy language-model
+[pauljump/usual](https://github.com/pauljump/usual). The original Itchy language-model
 research lives in `archive/itchy`; it is not required to install or use Usual.
 
 Run `python3 install.py --client both` (or choose one client). The installer:

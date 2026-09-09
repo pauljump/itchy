@@ -2,7 +2,7 @@
 
 **Your AI should know how you work.**
 
-[Website](https://usual.polyfeeds.dev) · [Learn Usual](LEARN.md) · [Source](https://github.com/pauljump/itchy)
+[Website](https://usual.polyfeeds.dev) · [Learn Usual](LEARN.md) · [Source](https://github.com/pauljump/usual)
 
 Usual analyzes your local Claude and Codex conversations for the moments when an agent
 asked you to choose. It preserves the question, offered alternatives, your actual answer,

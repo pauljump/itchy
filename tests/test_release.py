@@ -69,7 +69,7 @@ def test_public_site_never_accepts_or_exposes_private_data():
         with urllib.request.urlopen(base) as response:
             page=response.read().decode()
             assert 'Less asking.' in page
-            assert 'https://github.com/pauljump/itchy' in page
+            assert 'https://github.com/pauljump/usual' in page
         with urllib.request.urlopen(base+'/demo.json') as response:
             demo=json.load(response)
             assert demo['mode']=='fixture_replay'

@@ -42,5 +42,5 @@ Mining, storage, retrieval, and review are local. The coding model you already u
 the reasoning. There is no separate Usual model service, and counting mined decisions
 is not a claim of predictive accuracy.
 
-Usual is the active product in `pauljump/itchy`. The repository keeps its history while
+Usual is the active product in `pauljump/usual`. The repository keeps its history while
 the front door, installation, and ongoing development serve the work you do every day.
