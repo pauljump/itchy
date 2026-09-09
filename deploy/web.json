@@ -16,10 +16,14 @@
   "healthCheck": "https://tryusual.com/health",
   "deploymentCommand": "node /Users/mini-home/projects/_factory/control-plane/scripts/migrate-pm2-fleet.mjs --apply --only usual-web",
   "runtimeMode": "--autopilot-public",
-  "notes": "Usual public site and source-only downloads, served from the canonical pauljump/usual checkout. tryusual.com is canonical; www and previous hostnames redirect with paths and queries preserved. The legacy /whetstone.zip redirects to /usual.zip. No private corpus or model calls on the public service.",
+  "notes": "Usual public site and source-only downloads, served from the canonical pauljump/usual checkout. tryusual.com is canonical; www and previous hostnames redirect with paths and queries preserved. The legacy /whetstone.zip redirects to /usual.zip. No private corpus or model calls on the public service. Browser Integrity Check is off for this public agent-facing site because it blocked Python download clients with Cloudflare 1010.",
   "redirects": {
     "www.tryusual.com": "https://tryusual.com",
     "usual.polyfeeds.dev": "https://tryusual.com",
     "whetstone.polyfeeds.dev": "https://tryusual.com"
+  },
+  "zoneSettings": {
+    "always_use_https": "on",
+    "browser_check": "off"
   }
 }
