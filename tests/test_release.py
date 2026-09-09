@@ -73,6 +73,11 @@ def test_public_site_never_accepts_or_exposes_private_data():
             page=response.read().decode()
             assert 'Less asking.' in page
             assert 'https://github.com/pauljump/usual' in page
+            assert 'https://www.googletagmanager.com/gtag/js?id=G-Q5Z4208WNC' in page
+            assert "gtag('config','G-Q5Z4208WNC')" in page
+            assert 'https://pulse.polyfeeds.dev/api/ingest' in page
+            assert "property:P" in page
+            assert 'pulse_visitor_id' in page
         with urllib.request.urlopen(base+'/demo.json') as response:
             demo=json.load(response)
             assert demo['mode']=='fixture_replay'

@@ -41,6 +41,10 @@ header{height:98px;display:flex;align-items:center;justify-content:space-between
 .install .sticker{background:#fffaf0;border-color:#c9c2ae;box-shadow:2px 3px 0 #e0dacb;color:#745642}
 .install-step .n{color:#795d47}
 </style>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Q5Z4208WNC"></script>
+<script>
+window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-Q5Z4208WNC');
+</script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -65,6 +69,24 @@ header{height:98px;display:flex;align-items:center;justify-content:space-between
 </main>
 <script>
 'use strict';
+(function(){
+  if(window.__pulse)return;
+  window.__pulse=1;
+  if(/^(localhost|127\.0\.0\.1|0\.0\.0\.0)$/.test(location.hostname))return;
+  var I='https://pulse.polyfeeds.dev/api/ingest',P='tryusual.com',VK='pulse_visitor_id',LK='pulse_landing_path';
+  function path(value){return String(value||'/').split('?')[0].split('#')[0]||'/';}
+  function ref(value){if(!value)return;try{var u=new URL(value);return u.origin+path(u.pathname);}catch(e){return;}}
+  function visitor(){try{var value=localStorage.getItem(VK);if(!value){value=crypto.randomUUID?crypto.randomUUID():Date.now()+'-'+Math.random().toString(36).slice(2);localStorage.setItem(VK,value);}return value;}catch(e){return;}}
+  function landing(){try{var value=sessionStorage.getItem(LK);if(value)return value;value=path(location.pathname);sessionStorage.setItem(LK,value);return value;}catch(e){return path(location.pathname);}}
+  function campaign(){var q=new URLSearchParams(location.search),out={};['source','medium','campaign','term','content'].forEach(function(key){var value=q.get('utm_'+key);if(value)out[key]=value;});return out;}
+  function send(event,extra){try{var props=extra||{},body=JSON.stringify(Object.assign({event:event,property:P,path:path(location.pathname),referrer:ref(document.referrer),landingPath:landing(),visitorId:visitor(),screen:innerWidth+'x'+innerHeight},campaign(),props));if(navigator.sendBeacon)navigator.sendBeacon(I,new Blob([body],{type:'text/plain'}));else fetch(I,{method:'POST',headers:{'Content-Type':'text/plain'},keepalive:true,body:body});if(window.gtag&&event!=='page_view'&&event!=='page_dwell')gtag('event',event,props);}catch(e){}}
+  window.pulse=send;
+  send('page_view');
+  var enteredAt=Date.now();
+  function dwell(){send('page_dwell',{dwellMs:Date.now()-enteredAt});}
+  addEventListener('pagehide',dwell);document.addEventListener('visibilitychange',function(){if(document.visibilityState==='hidden')dwell();});
+  document.addEventListener('click',function(event){var target=event.target.closest&&event.target.closest('[data-analytics-event],a[href],button');if(!target)return;var name=target.getAttribute('data-analytics-event')||(target.dataset.copy?'copy_prompt':target.dataset.mode?'mode_changed':target.dataset.action?'studio_action':'link_click');send(name,{targetPath:path(target.getAttribute('href')||target.dataset.analyticsTarget||'')});});
+})();
 const promptText='Learn Usual: https://tryusual.com/learn.md';
 document.querySelectorAll('[data-copy="learn"]').forEach(button=>button.addEventListener('click',async()=>{const status=button.closest('.hero')?document.getElementById('hero-status'):button.closest('.install')?document.getElementById('install-status'):document.getElementById('footer-status');try{await navigator.clipboard.writeText(promptText);status.textContent='Copied. Paste it into Claude Code or Codex.';}catch{status.textContent='Select and copy the prompt in the install section.';document.getElementById('install-status').textContent='Select and copy this prompt.';document.getElementById('install').scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});const range=document.createRange();range.selectNodeContents(document.getElementById('learn-prompt'));const selection=window.getSelection();selection.removeAllRanges();selection.addRange(range);}}));
 const group=document.getElementById('terminal-group'),clone=group.cloneNode(true);clone.removeAttribute('id');clone.setAttribute('aria-hidden','true');clone.inert=true;document.getElementById('terminal-track').append(clone);
