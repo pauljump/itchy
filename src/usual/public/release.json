@@ -1,8 +1,8 @@
 {
   "version": "2.0.0b2",
   "stage": "local beta",
-  "sha256": "ada9546415814b7cf3bc1223399afc73d952a3ac0dbebb66da35f135bc736973",
-  "bytes": 122482,
+  "sha256": "050738faa86ff7ffb6310bdd2b6e866d1c3c40bee990d85e50dc42ab6964e985",
+  "bytes": 122694,
   "files": {
     "SKILL.md": "e49ed67c04b2e5960d5076486f6dbe2b1be2f65ce6e4e62c62b414724ea04a22",
     "README.md": "c7a8b4747a683ce07573c640901304c0da6a9b14aea38eab9f866087099b934e",
@@ -40,7 +40,7 @@
     "src/usual/server.py": "be813a50fecc09d0c54f3a0059bcee6e840ba4054e081bf0f96479428e34cc9c",
     "src/usual/synthesize.py": "2508f0f544f030a8587eb9191ad9d3b8d7ef41ea3e3f76eacff83d0e4b908f3c",
     "src/usual/transcripts.py": "24499c8c8a82f081166ad843836e2b6e276f0852f4d2cdaa2b1031fca16e9749",
-    "src/usual/autopilot.html": "9d6e65a5286b96ed293dbe6ed3cefdca5bdda3514ac75917d33c9e357dc4e8bd",
+    "src/usual/autopilot.html": "382e79c9876b0a8b62e792a4f96caca6e76e156a954b0ec2191409a42ffb397a",
     "src/usual/home.html": "19b63da8ad15c01c65915032d4f8c287bfca938be707d17cfe69ef446e8df83c"
   },
   "runtime": "Python 3.11+, standard library only",
