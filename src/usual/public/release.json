@@ -1,15 +1,15 @@
 {
   "version": "2.0.0b2",
   "stage": "local beta",
-  "sha256": "050738faa86ff7ffb6310bdd2b6e866d1c3c40bee990d85e50dc42ab6964e985",
-  "bytes": 122694,
+  "sha256": "559d25ee254843c05df5d0cf3be931ef9f7d3bbe9f30182a7214d8d915f0cd9d",
+  "bytes": 165270,
   "files": {
     "SKILL.md": "e49ed67c04b2e5960d5076486f6dbe2b1be2f65ce6e4e62c62b414724ea04a22",
     "README.md": "c7a8b4747a683ce07573c640901304c0da6a9b14aea38eab9f866087099b934e",
     "LEARN.md": "0d540590d57ed5add6d023fe21c4d55eff8e0155c053038f4e462b810da09781",
     "LICENSE": "116b92ecaac16e4eb5634fe0e72e778135e0348a28b8c86add8b6db516797ff6",
     "install.py": "2fad1999fffdf5579cfceb61224a896cf4054b8753972400046b7e38bf6666be",
-    "scripts/build_release.py": "6831a79c1bbaeeb5c6aad95543391bfca7b89e5242668b9457ef8076855533fe",
+    "scripts/build_release.py": "e269f466d0bc6f1bfeba5e299f84cdaad3f69052a733ebd83176fb564ef60202",
     "scripts/run_demo.py": "0f1177aa7dbeabbead7dab89c4b7b11f8b4e15e2dd55f830cdaa9d402550735e",
     "scripts/usual.py": "6e968866162332ad889e3b75736817952a8ad3cffbe31b5ad3817af1585ed111",
     "references/demo.md": "b59bf05a98da400a1e307444d62a433224da33227eaaf387d984d7e0c318fd4a",
@@ -37,11 +37,13 @@
     "src/usual/parsers.py": "eb123dcc7ad0273025bb900a655b0ef62dbc1ea3edd08781e54a80b148490b51",
     "src/usual/redact.py": "f8e35956e55cfadbc4c46a4e14949f43ce0306251c1f3268636afb8e4d307b96",
     "src/usual/review_server.py": "bc4921dca1175c6330ae5f3566f793d64ef2d51b9f82449dceaaf449213e9ec0",
-    "src/usual/server.py": "be813a50fecc09d0c54f3a0059bcee6e840ba4054e081bf0f96479428e34cc9c",
+    "src/usual/server.py": "c5df020e45bb0dbd6453f2825d738687aa41393ef6641f0896251e4cfc331c1d",
     "src/usual/synthesize.py": "2508f0f544f030a8587eb9191ad9d3b8d7ef41ea3e3f76eacff83d0e4b908f3c",
     "src/usual/transcripts.py": "24499c8c8a82f081166ad843836e2b6e276f0852f4d2cdaa2b1031fca16e9749",
-    "src/usual/autopilot.html": "382e79c9876b0a8b62e792a4f96caca6e76e156a954b0ec2191409a42ffb397a",
-    "src/usual/home.html": "19b63da8ad15c01c65915032d4f8c287bfca938be707d17cfe69ef446e8df83c"
+    "src/usual/autopilot.html": "4f48b166dff2332ea8e982acb568a09d8a09b031030b48c82e31f58cdd646d54",
+    "src/usual/home.html": "19b63da8ad15c01c65915032d4f8c287bfca938be707d17cfe69ef446e8df83c",
+    "src/usual/public/og.svg": "cabbf4245069b9eb8189f33b6c4497f2afca1dc0657efa58a155fd8d6925b11a",
+    "src/usual/public/og.png": "e0a3701ac37deccce46353ddf052c1b91bb49d6bee4f65e8d13fd0ccb5fa4fc1"
   },
   "runtime": "Python 3.11+, standard library only",
   "recorded_app": {

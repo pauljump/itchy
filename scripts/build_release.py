@@ -39,6 +39,7 @@ def build(output=None):
     source_files += [recorded / name for name in ['app.py', 'test_app.py', 'README.md', 'build.json']]
     source_files += sorted((ROOT / 'src/usual').glob('*.py'))
     source_files += sorted((ROOT / 'src/usual').glob('*.html'))
+    source_files += [ROOT / 'src/usual/public' / name for name in ['og.svg', 'og.png']]
     contents = {}
     buffer = io.BytesIO()
     with zipfile.ZipFile(buffer, 'w', zipfile.ZIP_DEFLATED) as archive:

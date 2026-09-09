@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <!-- Existing Usual brand geometry. Export: rsvg-convert -o og.png og.svg -->
+  <rect width="1200" height="630" fill="#f6f4eb"/>
+  <path d="M64 62h1072M64 568h1072" stroke="#d6d8cb"/>
+  <text x="64" y="104" font-family="Courier New,monospace" font-size="18" letter-spacing="2" fill="#686b60">YOUR DECISIONS, REMEMBERED.</text>
+  <g transform="translate(123 176) rotate(-5 125 125) scale(7)">
+    <rect x="1" y="1" width="34" height="34" rx="8" fill="#e7502d"/>
+    <path d="M10 10v12a8 8 0 0 0 16 0V10" fill="none" stroke="#fff8eb" stroke-width="2.8" stroke-linejoin="round"/>
+  </g>
+  <text x="430" y="329" font-family="Arial,Helvetica,sans-serif" font-weight="800" font-size="164" letter-spacing="-8" fill="#252920">usual</text>
+  <text x="438" y="397" font-family="Georgia,serif" font-style="italic" font-size="42" fill="#e7502d">I’ll have the usual.</text>
+  <text x="64" y="541" font-family="Courier New,monospace" font-size="18" fill="#686b60">A LOCAL SKILL FOR CLAUDE CODE + CODEX</text>
+  <text x="1136" y="541" text-anchor="end" font-family="Courier New,monospace" font-size="18" fill="#686b60">LESS ASKING. MORE MAKING.</text>
+</svg>

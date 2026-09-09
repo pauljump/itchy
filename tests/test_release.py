@@ -2,6 +2,8 @@ import hashlib
 import importlib.util
 import json
 import http.client
+from html.parser import HTMLParser
+import struct
 from pathlib import Path
 import subprocess
 import sys
@@ -54,6 +56,7 @@ def test_download_clean_install_runs_without_checkout_or_pip(tmp_path):
         result = subprocess.run(shared + ['start', '--task', 'Build a local tool'], check=True, capture_output=True, text=True)
         assert json.loads(result.stdout)['mode'] == 'check-in'
         assert (script.parent.parent/'references/onboarding.md').is_file()
+        assert (script.parent.parent/'src/usual/public/og.png').read_bytes().startswith(b'\x89PNG\r\n\x1a\n')
     # Reinstall is recoverable and backups aren't competing discovered skills.
     result=subprocess.run([sys.executable,str(extracted/'moved away/install.py'),'--home',str(home)],check=True,capture_output=True,text=True)
     for item in json.loads(result.stdout)['installed']:
@@ -88,6 +91,43 @@ def test_public_site_never_accepts_or_exposes_private_data():
         assert response.getheader('Location') == 'https://usual.polyfeeds.dev/usual.zip'
         response.read()
         connection.close()
+    finally:
+        server.shutdown()
+        server.server_close()
+
+
+def test_share_crawlers_can_fetch_the_declared_image():
+    class Metadata(HTMLParser):
+        def __init__(self):
+            super().__init__()
+            self.tags = {}
+
+        def handle_starttag(self, tag, attrs):
+            attrs = dict(attrs)
+            if tag == 'meta':
+                self.tags[attrs.get('property') or attrs.get('name')] = attrs.get('content')
+
+    server = ThreadingHTTPServer(('127.0.0.1', 0), PublicAutopilotHandler)
+    threading.Thread(target=server.serve_forever, daemon=True).start()
+    base = f'http://127.0.0.1:{server.server_port}'
+    try:
+        with urllib.request.urlopen(base) as response:
+            metadata = Metadata()
+            metadata.feed(response.read().decode())
+        tags = metadata.tags
+        assert tags['twitter:card'] == 'summary_large_image'
+        assert tags['og:image'] == tags['twitter:image']
+        assert tags['og:image:alt'] and tags['twitter:image:alt']
+        image_url = urllib.parse.urlparse(tags['og:image'])
+        assert image_url.scheme == 'https' and image_url.netloc == 'usual.polyfeeds.dev'
+        with urllib.request.urlopen(base + image_url.path) as response:
+            data = response.read()
+            assert response.headers.get_content_type() == 'image/png'
+            assert data[:8] == b'\x89PNG\r\n\x1a\n'
+            assert struct.unpack('>II', data[16:24]) == (int(tags['og:image:width']), int(tags['og:image:height']))
+        with urllib.request.urlopen(urllib.request.Request(base + image_url.path, method='HEAD')) as response:
+            assert int(response.headers['Content-Length']) == len(data)
+            assert response.read() == b''
     finally:
         server.shutdown()
         server.server_close()

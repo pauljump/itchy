@@ -1300,6 +1300,7 @@ class PublicAutopilotHandler(BaseHTTPRequestHandler):
         "/reading-list.zip": ("public/reading-list.zip", "application/zip"),
         "/release.json": ("public/release.json", "application/json"),
         "/usual.zip": ("public/usual.zip", "application/zip"),
+        "/og.png": ("public/og.png", "image/png"),
     }
 
     def _serve(self, head=False):
