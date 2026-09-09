@@ -1,0 +1,142 @@
+{
+  "dataset_revision": "e6484f41480cbf7be61dedd61c631f57c97da58a5b2971253750dade70d47d28",
+  "learner": {
+    "name": "byte-ngram-linear-softmax",
+    "dimensions": 8192,
+    "epochs": 40,
+    "seed": 0,
+    "version": "0.1.0"
+  },
+  "policy": {
+    "target_precision": 0.95,
+    "min_support": 50,
+    "min_coverage": 0.1,
+    "interval": "two-sided 95% Wilson lower bound"
+  },
+  "splits": {
+    "train": 3117,
+    "calibration": 1057,
+    "test": 985
+  },
+  "thresholds": {
+    "ham": 0.5,
+    "spam": 0.5
+  },
+  "calibration": {
+    "total": 1057,
+    "accepted": 1057,
+    "correct": 1038,
+    "coverage": 1.0,
+    "precision": 0.9820245979186376,
+    "wilson_lower_95": 0.9720957102548421,
+    "ungated_accuracy": 0.9820245979186376,
+    "per_label": {
+      "ham": {
+        "accepted": 943,
+        "correct": 924,
+        "precision": 0.9798515376458112,
+        "wilson_lower_95": 0.9687456781823779
+      },
+      "spam": {
+        "accepted": 114,
+        "correct": 114,
+        "precision": 1.0,
+        "wilson_lower_95": 0.9674014658411585
+      }
+    },
+    "confusion": {
+      "ham": {
+        "ham": 924,
+        "spam": 0
+      },
+      "spam": {
+        "ham": 19,
+        "spam": 114
+      }
+    }
+  },
+  "test": {
+    "total": 985,
+    "accepted": 985,
+    "correct": 966,
+    "coverage": 1.0,
+    "precision": 0.9807106598984772,
+    "wilson_lower_95": 0.9700695172378103,
+    "ungated_accuracy": 0.9807106598984772,
+    "per_label": {
+      "ham": {
+        "accepted": 881,
+        "correct": 863,
+        "precision": 0.9795686719636776,
+        "wilson_lower_95": 0.967935583350784
+      },
+      "spam": {
+        "accepted": 104,
+        "correct": 103,
+        "precision": 0.9903846153846154,
+        "wilson_lower_95": 0.9475322752920541
+      }
+    },
+    "confusion": {
+      "ham": {
+        "ham": 863,
+        "spam": 1
+      },
+      "spam": {
+        "ham": 18,
+        "spam": 103
+      }
+    }
+  },
+  "ready": false,
+  "reasons": [
+    "spam: independent test evidence fails precision/support policy."
+  ],
+  "train_seconds": 1.612,
+  "artifact_bytes": 62201,
+  "limitations": [
+    "Precision intervals assume representative independent examples.",
+    "Threshold selection uses calibration only. Reusing test data across experiments is adaptive evaluation.",
+    "Byte familiarity is a heuristic, not a guarantee against distribution shift."
+  ],
+  "benchmark": "UCI SMS Spam Collection \u2014 retrospective, one fixed split",
+  "source": "https://archive.ics.uci.edu/dataset/228/sms+spam+collection",
+  "citation": "Almeida, T. & Hidalgo, J. (2011). SMS Spam Collection. DOI: 10.24432/C5CC84",
+  "dataset_sha256": "7d039a24a6083ed9ef0f806ebad56bbb976e3aeb8de05669173bfdc4996c239d",
+  "preparation": {
+    "source_rows": 5574,
+    "normalized_unique": 5159,
+    "conflicting_texts_excluded": 0
+  },
+  "grouping": "exact normalized deduplication; digit-normalized variants share a group; other near-duplicates may remain",
+  "split_labels": {
+    "train": {
+      "ham": 2729,
+      "spam": 388
+    },
+    "calibration": {
+      "spam": 133,
+      "ham": 924
+    },
+    "test": {
+      "ham": 864,
+      "spam": 121
+    }
+  },
+  "majority_baseline": {
+    "label": "ham",
+    "coverage": 1.0,
+    "accuracy": 0.8771573604060914
+  },
+  "inference_ms": {
+    "median": 0.032292213290929794,
+    "p95": 0.0689169391989708,
+    "calls": 985,
+    "includes_sqlite_logging": false
+  },
+  "environment": {
+    "python": "3.14.6",
+    "platform": "macOS-26.5.1-arm64-arm-64bit-Mach-O",
+    "numpy": "2.4.4"
+  }
+}

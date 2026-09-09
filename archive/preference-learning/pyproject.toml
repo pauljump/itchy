@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "itchy-local"
+version = "0.1.0"
+description = "Small personal judgment models learned from Whetstone reviews."
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+dependencies = ["numpy>=1.24"]
+
+[project.scripts]
+itchy = "itchy.cli:main"
+
+[tool.setuptools]
+packages = ["itchy"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

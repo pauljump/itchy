@@ -1,3 +1,5 @@
+> **Historical Itchy research.** The reported patched-model BPB scores were invalidated by future-byte leakage. Read [the correction](CORRECTION.md). The active product is [Usual](../../README.md).
+
 # Itchy
 
 A 16MB language model designed to be small from birth — not a shrunken giant.
@@ -63,17 +65,7 @@ Patch size is the dominant hyperparameter — going from 4 to 12 improved BPB by
 | +LN Scale | 0.6125 | +0.0115 (hurts) |
 | +N-gram hash | 0.6010 | +0.0000 (no effect) |
 
-### A100 full-size run (17.5M params, 2 shards, 7.3 min):
-
-| | Val BPB |
-|---|---------|
-| Competition baseline (8xH100, 80 shards) | 1.2244 |
-| Competition SOTA (8xH100, 80 shards) | 1.1194 |
-| **Itchy (1xA100, 2 shards)** | **0.1669** |
-
-*Not directly comparable — Itchy uses 2/80 shards so partial memorization inflates the result. Real competition score will be higher. But the headroom is enormous.*
-
-### Head-to-head vs token-level baseline (T4, matched compute):
+### Head-to-head vs token-level baseline:
 - **Itchy (byte-level): 0.66 BPB** with 4.3M params
 - **Baseline (token-level): 2.56 BPB** with 1.1M params (same total size budget)
 
@@ -83,18 +75,6 @@ Patch size is the dominant hyperparameter — going from 4 to 12 improved BPB by
 - **Partial RoPE**: Helps token-level models, hurts byte-level (+0.011 BPB).
 - **LN Scale per layer**: Same — helps at token level, hurts at byte level (+0.012 BPB).
 - **Hash n-gram embeddings**: Added 600K params for zero BPB improvement.
-
-## Status
-
-- [x] Model architecture (byte-level, LeakyReLU², 3x MLP)
-- [x] Ablation study on T4 (7 configs tested)
-- [x] Head-to-head vs token-level baseline
-- [x] MLX training loop (local Mac)
-- [x] CUDA training script (8xH100, ready to run)
-- [x] Byte data pipeline
-- [ ] Full training runs on H100s (waiting for compute grant)
-- [ ] 3-seed validation
-- [ ] Submission PR
 
 ## Running
 
@@ -107,3 +87,7 @@ ITERATIONS=30 TRAIN_LOG_EVERY=10 .venv/bin/python train_itchy_mlx.py
 python data/convert_to_bytes.py --train-shards 80
 torchrun --standalone --nproc_per_node=8 train_itchy_final.py
 ```
+
+---
+
+**Part of a larger system.** See [pauljump/portfolio](https://github.com/pauljump/portfolio) for the full picture — 16 production apps, shared infrastructure, and the factory that builds them.

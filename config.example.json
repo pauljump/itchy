@@ -1,0 +1,15 @@
+{
+  "user_name": "the user",
+  "transcripts_glob": "~/.claude/projects/**/*.jsonl",
+  "mining_dir": "mining",
+  "corpus_path": "study-corpus.jsonl",
+  "exam_dir": "exam",
+  "domains": ["product","design","people","money","factory","voice","other"],
+  "min_confidence": 0.5,
+  "holdout_size": 20,
+  "holdout_strategy": "random-seeded",
+  "seed": 42,
+  "heuristic_curation": true,
+  "redaction": { "regex": true, "llm_scan": true, "redact_emails": true, "redact_long_numbers": true },
+  "manifest_overrides": { "drops": [], "scrubs": [], "holdout": [], "keeps": [] }
+}

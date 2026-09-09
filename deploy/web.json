@@ -1,0 +1,21 @@
+{
+  "project": "usual",
+  "canonicalRoot": "/Users/mini-home/projects/itchy",
+  "hostnames": [
+    "usual.polyfeeds.dev",
+    "whetstone.polyfeeds.dev"
+  ],
+  "surface": "cloudflare-tunnel",
+  "tunnel": "mini-dev",
+  "stage": "preview",
+  "service": "http://127.0.0.1:8230",
+  "process": "usual-web",
+  "processOwner": "pm2",
+  "healthCheck": "https://usual.polyfeeds.dev/health",
+  "deploymentCommand": "node /Users/mini-home/projects/_factory/control-plane/scripts/migrate-pm2-fleet.mjs --apply --only usual-web",
+  "runtimeMode": "--autopilot-public",
+  "notes": "Usual public site and code-only downloads, served from the canonical pauljump/itchy checkout. The previous hostname and /whetstone.zip redirect to Usual. No private corpus or model calls on the public service.",
+  "redirects": {
+    "whetstone.polyfeeds.dev": "https://usual.polyfeeds.dev"
+  }
+}

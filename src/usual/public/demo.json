@@ -1,0 +1,789 @@
+{
+  "mode": "fixture_replay",
+  "disclosure": "Synthetic coding transcripts and prewritten agent choices run through the real Usual engine. This is not a live Codex or Claude inference run.",
+  "import": {
+    "files": 2,
+    "added": 4,
+    "duplicates": 0,
+    "malformed_lines": 0,
+    "ignored_turns": 0,
+    "user_turns": 4,
+    "errors": []
+  },
+  "evidence": [
+    {
+      "id": "e_a0e15339d35e429c6803",
+      "fingerprint": "a0e15339d35e429c6803f31c899ae2bd008f9089928c833dace481f8c92ec213",
+      "scope": "sample-reading-list",
+      "situation": "Should the local Python web server use a framework dependency?",
+      "call": "Keep the Python standard library for this small local server, but use an existing web framework when the project already has one.",
+      "quote": "Keep the Python standard library for this small local server, but use an existing web framework when the project already has one.",
+      "domain": "dependency",
+      "source": "review:dec_4850c676e8ee47cf832c",
+      "line": 0,
+      "date": "2026-09-09",
+      "origin": "endorsed",
+      "status": "active"
+    },
+    {
+      "id": "e_5695dddddc8e377b0c1f",
+      "fingerprint": "5695dddddc8e377b0c1f981269dba8c8e1105d0bfa554c65b878707bbea211da",
+      "scope": "sample-reading-list",
+      "situation": "Which storage fits this single-user local reading list?",
+      "call": "Use SQLite",
+      "quote": "Use SQLite",
+      "domain": "implementation",
+      "source": "review:dec_4e5455c43c4049f5b96b",
+      "line": 0,
+      "date": "2026-09-09",
+      "origin": "endorsed",
+      "status": "active"
+    },
+    {
+      "id": "e_56a653e72a04311e0784",
+      "fingerprint": "56a653e72a04311e0784e0aee3fd2e40913ea8dfb0f75b44ba58f81e5dfe8a28",
+      "scope": "global",
+      "situation": "Would you like a public deployment as soon as the build passes?",
+      "call": "Never treat my implementation preferences as permission to publish. Ask me before a public deployment.",
+      "quote": "Never treat my implementation preferences as permission to publish. Ask me before a public deployment.",
+      "domain": "other",
+      "source": "sample-claude.jsonl",
+      "line": 4,
+      "date": "2026-09-02",
+      "origin": "observed",
+      "status": "active"
+    },
+    {
+      "id": "e_b7375cd88a192f503713",
+      "fingerprint": "b7375cd88a192f50371319aa35d13cff84c7428d536ccd754fbd0f4987948610",
+      "scope": "global",
+      "situation": "Should we label the reading list controls with icons only, or visible text labels?",
+      "call": "Use visible text labels for reading list controls because people should understand what clicking will do.",
+      "quote": "Use visible text labels for reading list controls because people should understand what clicking will do.",
+      "domain": "other",
+      "source": "sample-claude.jsonl",
+      "line": 2,
+      "date": "2026-09-02",
+      "origin": "observed",
+      "status": "active"
+    },
+    {
+      "id": "e_224e434623335c13b0be",
+      "fingerprint": "224e434623335c13b0bec9df69fa0b7530d0e8dc6dc13d00cc87e6d285e5848e",
+      "scope": "global",
+      "situation": "Should the local web server add a framework dependency, or use the existing Python standard library?",
+      "call": "Keep the Python standard library for a small local web server. Avoid a framework dependency because installing and maintaining it is extra work.",
+      "quote": "Keep the Python standard library for a small local web server. Avoid a framework dependency because installing and maintaining it is extra work.",
+      "domain": "factory",
+      "source": "sample-codex.jsonl",
+      "line": 5,
+      "date": "2026-09-01",
+      "origin": "observed",
+      "status": "active"
+    },
+    {
+      "id": "e_7b5d82e2343a4ab4177e",
+      "fingerprint": "7b5d82e2343a4ab4177ec67fb6dce953ee84245c49d4baf0f6873ea7c039bfa5",
+      "scope": "global",
+      "situation": "For a personal local reading list, should we use SQLite storage or a hosted Postgres database?",
+      "call": "Use SQLite for single-user local storage because I want the data to survive restarts without running another database service.",
+      "quote": "Use SQLite for single-user local storage because I want the data to survive restarts without running another database service.",
+      "domain": "product",
+      "source": "sample-codex.jsonl",
+      "line": 3,
+      "date": "2026-09-01",
+      "origin": "observed",
+      "status": "active"
+    }
+  ],
+  "before_review": {
+    "run": {
+      "id": "run_bce5b5a712e0421593a4",
+      "task": "Build a local reading list with durable storage and clear controls.",
+      "scope": "sample-reading-list",
+      "status": "complete",
+      "created": "2026-09-09T02:42:10.468+00:00",
+      "finished": "2026-09-09T02:42:10.479+00:00",
+      "mode": "autopilot"
+    },
+    "consultations": [
+      {
+        "id": "ask_90f5a56f073d4c8ab98e",
+        "run_id": "run_bce5b5a712e0421593a4",
+        "question": "Which storage fits this single-user local reading list?",
+        "options": [
+          "Use SQLite",
+          "Use hosted Postgres"
+        ],
+        "kind": "implementation",
+        "evidence": [
+          {
+            "id": "e_7b5d82e2343a4ab4177e",
+            "fingerprint": "7b5d82e2343a4ab4177ec67fb6dce953ee84245c49d4baf0f6873ea7c039bfa5",
+            "scope": "global",
+            "situation": "For a personal local reading list, should we use SQLite storage or a hosted Postgres database?",
+            "call": "Use SQLite for single-user local storage because I want the data to survive restarts without running another database service.",
+            "quote": "Use SQLite for single-user local storage because I want the data to survive restarts without running another database service.",
+            "domain": "product",
+            "source": "sample-codex.jsonl",
+            "line": 3,
+            "date": "2026-09-01",
+            "origin": "observed",
+            "status": "active",
+            "relevance": 21.374,
+            "matched_terms": [
+              "hosted",
+              "list",
+              "local",
+              "postgre",
+              "reading",
+              "single-user",
+              "sqlite",
+              "storage"
+            ]
+          },
+          {
+            "id": "e_b7375cd88a192f503713",
+            "fingerprint": "b7375cd88a192f50371319aa35d13cff84c7428d536ccd754fbd0f4987948610",
+            "scope": "global",
+            "situation": "Should we label the reading list controls with icons only, or visible text labels?",
+            "call": "Use visible text labels for reading list controls because people should understand what clicking will do.",
+            "quote": "Use visible text labels for reading list controls because people should understand what clicking will do.",
+            "domain": "other",
+            "source": "sample-claude.jsonl",
+            "line": 2,
+            "date": "2026-09-02",
+            "origin": "observed",
+            "status": "active",
+            "relevance": 6.043,
+            "matched_terms": [
+              "list",
+              "reading"
+            ]
+          }
+        ],
+        "gate": "advisory",
+        "created": "2026-09-09T02:42:10.470+00:00",
+        "decision": {
+          "id": "dec_4e5455c43c4049f5b96b",
+          "consultation_id": "ask_90f5a56f073d4c8ab98e",
+          "run_id": "run_bce5b5a712e0421593a4",
+          "choice": "Use SQLite",
+          "rationale": "The earlier user explicitly chose SQLite for single-user local storage to avoid another service.",
+          "evidence_ids": [
+            "e_7b5d82e2343a4ab4177e"
+          ],
+          "basis": "prediction",
+          "confidence": "medium",
+          "review": "pending",
+          "correction": null,
+          "created": "2026-09-09T02:42:10.471+00:00"
+        }
+      },
+      {
+        "id": "ask_88044d2b8f0d41cbaacd",
+        "run_id": "run_bce5b5a712e0421593a4",
+        "question": "Should the local Python web server use a framework dependency?",
+        "options": [
+          "Use the Python standard library",
+          "Add a web framework"
+        ],
+        "kind": "dependency",
+        "evidence": [
+          {
+            "id": "e_224e434623335c13b0be",
+            "fingerprint": "224e434623335c13b0bec9df69fa0b7530d0e8dc6dc13d00cc87e6d285e5848e",
+            "scope": "global",
+            "situation": "Should the local web server add a framework dependency, or use the existing Python standard library?",
+            "call": "Keep the Python standard library for a small local web server. Avoid a framework dependency because installing and maintaining it is extra work.",
+            "quote": "Keep the Python standard library for a small local web server. Avoid a framework dependency because installing and maintaining it is extra work.",
+            "domain": "factory",
+            "source": "sample-codex.jsonl",
+            "line": 5,
+            "date": "2026-09-01",
+            "origin": "observed",
+            "status": "active",
+            "relevance": 31.766,
+            "matched_terms": [
+              "add",
+              "dependency",
+              "framework",
+              "library",
+              "local",
+              "python",
+              "server",
+              "standard",
+              "web"
+            ]
+          }
+        ],
+        "gate": "advisory",
+        "created": "2026-09-09T02:42:10.472+00:00",
+        "decision": {
+          "id": "dec_4850c676e8ee47cf832c",
+          "consultation_id": "ask_88044d2b8f0d41cbaacd",
+          "run_id": "run_bce5b5a712e0421593a4",
+          "choice": "Use the Python standard library",
+          "rationale": "The earlier user chose the standard library for a small local server and explained the dependency tradeoff.",
+          "evidence_ids": [
+            "e_224e434623335c13b0be"
+          ],
+          "basis": "prediction",
+          "confidence": "medium",
+          "review": "pending",
+          "correction": null,
+          "created": "2026-09-09T02:42:10.473+00:00"
+        }
+      },
+      {
+        "id": "ask_19a25d777e164a50b650",
+        "run_id": "run_bce5b5a712e0421593a4",
+        "question": "How should the reading list controls be labeled?",
+        "options": [
+          "Use visible text labels",
+          "Use icons alone"
+        ],
+        "kind": "design",
+        "evidence": [
+          {
+            "id": "e_b7375cd88a192f503713",
+            "fingerprint": "b7375cd88a192f50371319aa35d13cff84c7428d536ccd754fbd0f4987948610",
+            "scope": "global",
+            "situation": "Should we label the reading list controls with icons only, or visible text labels?",
+            "call": "Use visible text labels for reading list controls because people should understand what clicking will do.",
+            "quote": "Use visible text labels for reading list controls because people should understand what clicking will do.",
+            "domain": "other",
+            "source": "sample-claude.jsonl",
+            "line": 2,
+            "date": "2026-09-02",
+            "origin": "observed",
+            "status": "active",
+            "relevance": 23.29,
+            "matched_terms": [
+              "control",
+              "icon",
+              "label",
+              "list",
+              "reading",
+              "text",
+              "visible"
+            ]
+          },
+          {
+            "id": "e_7b5d82e2343a4ab4177e",
+            "fingerprint": "7b5d82e2343a4ab4177ec67fb6dce953ee84245c49d4baf0f6873ea7c039bfa5",
+            "scope": "global",
+            "situation": "For a personal local reading list, should we use SQLite storage or a hosted Postgres database?",
+            "call": "Use SQLite for single-user local storage because I want the data to survive restarts without running another database service.",
+            "quote": "Use SQLite for single-user local storage because I want the data to survive restarts without running another database service.",
+            "domain": "product",
+            "source": "sample-codex.jsonl",
+            "line": 3,
+            "date": "2026-09-01",
+            "origin": "observed",
+            "status": "active",
+            "relevance": 3.022,
+            "matched_terms": [
+              "list",
+              "reading"
+            ]
+          }
+        ],
+        "gate": "advisory",
+        "created": "2026-09-09T02:42:10.475+00:00",
+        "decision": {
+          "id": "dec_7476f618fe1245e596a6",
+          "consultation_id": "ask_19a25d777e164a50b650",
+          "run_id": "run_bce5b5a712e0421593a4",
+          "choice": "Use visible text labels",
+          "rationale": "The user previously chose visible text labels for this exact kind of control.",
+          "evidence_ids": [
+            "e_b7375cd88a192f503713"
+          ],
+          "basis": "prediction",
+          "confidence": "medium",
+          "review": "pending",
+          "correction": null,
+          "created": "2026-09-09T02:42:10.476+00:00"
+        }
+      },
+      {
+        "id": "ask_24c384cf57104cee9522",
+        "run_id": "run_bce5b5a712e0421593a4",
+        "question": "Should I publish the finished reading list now?",
+        "options": [
+          "Publish now",
+          "Wait for the user"
+        ],
+        "kind": "permission",
+        "evidence": [
+          {
+            "id": "e_b7375cd88a192f503713",
+            "fingerprint": "b7375cd88a192f50371319aa35d13cff84c7428d536ccd754fbd0f4987948610",
+            "scope": "global",
+            "situation": "Should we label the reading list controls with icons only, or visible text labels?",
+            "call": "Use visible text labels for reading list controls because people should understand what clicking will do.",
+            "quote": "Use visible text labels for reading list controls because people should understand what clicking will do.",
+            "domain": "other",
+            "source": "sample-claude.jsonl",
+            "line": 2,
+            "date": "2026-09-02",
+            "origin": "observed",
+            "status": "active",
+            "relevance": 6.043,
+            "matched_terms": [
+              "list",
+              "reading"
+            ]
+          },
+          {
+            "id": "e_7b5d82e2343a4ab4177e",
+            "fingerprint": "7b5d82e2343a4ab4177ec67fb6dce953ee84245c49d4baf0f6873ea7c039bfa5",
+            "scope": "global",
+            "situation": "For a personal local reading list, should we use SQLite storage or a hosted Postgres database?",
+            "call": "Use SQLite for single-user local storage because I want the data to survive restarts without running another database service.",
+            "quote": "Use SQLite for single-user local storage because I want the data to survive restarts without running another database service.",
+            "domain": "product",
+            "source": "sample-codex.jsonl",
+            "line": 3,
+            "date": "2026-09-01",
+            "origin": "observed",
+            "status": "active",
+            "relevance": 3.022,
+            "matched_terms": [
+              "list",
+              "reading"
+            ]
+          }
+        ],
+        "gate": "requires_user",
+        "created": "2026-09-09T02:42:10.477+00:00",
+        "decision": {
+          "id": "dec_03a3a2265747434c943f",
+          "consultation_id": "ask_24c384cf57104cee9522",
+          "run_id": "run_bce5b5a712e0421593a4",
+          "choice": "Wait for the user",
+          "rationale": "Preferences are not permission to publish. Keep the built app local.",
+          "evidence_ids": [],
+          "basis": "escalated",
+          "confidence": "low",
+          "review": "pending",
+          "correction": null,
+          "created": "2026-09-09T02:42:10.478+00:00"
+        }
+      }
+    ],
+    "summary": {
+      "consultations": 4,
+      "decisions": 4,
+      "predictions": 3,
+      "defaults": 0,
+      "escalations": 1,
+      "pending_review": 4,
+      "accepted": 0,
+      "corrected": 0,
+      "rejected": 0
+    }
+  },
+  "after_review": {
+    "run": {
+      "id": "run_bce5b5a712e0421593a4",
+      "task": "Build a local reading list with durable storage and clear controls.",
+      "scope": "sample-reading-list",
+      "status": "complete",
+      "created": "2026-09-09T02:42:10.468+00:00",
+      "finished": "2026-09-09T02:42:10.479+00:00",
+      "mode": "autopilot"
+    },
+    "consultations": [
+      {
+        "id": "ask_90f5a56f073d4c8ab98e",
+        "run_id": "run_bce5b5a712e0421593a4",
+        "question": "Which storage fits this single-user local reading list?",
+        "options": [
+          "Use SQLite",
+          "Use hosted Postgres"
+        ],
+        "kind": "implementation",
+        "evidence": [
+          {
+            "id": "e_7b5d82e2343a4ab4177e",
+            "fingerprint": "7b5d82e2343a4ab4177ec67fb6dce953ee84245c49d4baf0f6873ea7c039bfa5",
+            "scope": "global",
+            "situation": "For a personal local reading list, should we use SQLite storage or a hosted Postgres database?",
+            "call": "Use SQLite for single-user local storage because I want the data to survive restarts without running another database service.",
+            "quote": "Use SQLite for single-user local storage because I want the data to survive restarts without running another database service.",
+            "domain": "product",
+            "source": "sample-codex.jsonl",
+            "line": 3,
+            "date": "2026-09-01",
+            "origin": "observed",
+            "status": "active",
+            "relevance": 21.374,
+            "matched_terms": [
+              "hosted",
+              "list",
+              "local",
+              "postgre",
+              "reading",
+              "single-user",
+              "sqlite",
+              "storage"
+            ]
+          },
+          {
+            "id": "e_b7375cd88a192f503713",
+            "fingerprint": "b7375cd88a192f50371319aa35d13cff84c7428d536ccd754fbd0f4987948610",
+            "scope": "global",
+            "situation": "Should we label the reading list controls with icons only, or visible text labels?",
+            "call": "Use visible text labels for reading list controls because people should understand what clicking will do.",
+            "quote": "Use visible text labels for reading list controls because people should understand what clicking will do.",
+            "domain": "other",
+            "source": "sample-claude.jsonl",
+            "line": 2,
+            "date": "2026-09-02",
+            "origin": "observed",
+            "status": "active",
+            "relevance": 6.043,
+            "matched_terms": [
+              "list",
+              "reading"
+            ]
+          }
+        ],
+        "gate": "advisory",
+        "created": "2026-09-09T02:42:10.470+00:00",
+        "decision": {
+          "id": "dec_4e5455c43c4049f5b96b",
+          "consultation_id": "ask_90f5a56f073d4c8ab98e",
+          "run_id": "run_bce5b5a712e0421593a4",
+          "choice": "Use SQLite",
+          "rationale": "The earlier user explicitly chose SQLite for single-user local storage to avoid another service.",
+          "evidence_ids": [
+            "e_7b5d82e2343a4ab4177e"
+          ],
+          "basis": "prediction",
+          "confidence": "medium",
+          "review": "accepted",
+          "correction": null,
+          "created": "2026-09-09T02:42:10.471+00:00"
+        }
+      },
+      {
+        "id": "ask_88044d2b8f0d41cbaacd",
+        "run_id": "run_bce5b5a712e0421593a4",
+        "question": "Should the local Python web server use a framework dependency?",
+        "options": [
+          "Use the Python standard library",
+          "Add a web framework"
+        ],
+        "kind": "dependency",
+        "evidence": [
+          {
+            "id": "e_224e434623335c13b0be",
+            "fingerprint": "224e434623335c13b0bec9df69fa0b7530d0e8dc6dc13d00cc87e6d285e5848e",
+            "scope": "global",
+            "situation": "Should the local web server add a framework dependency, or use the existing Python standard library?",
+            "call": "Keep the Python standard library for a small local web server. Avoid a framework dependency because installing and maintaining it is extra work.",
+            "quote": "Keep the Python standard library for a small local web server. Avoid a framework dependency because installing and maintaining it is extra work.",
+            "domain": "factory",
+            "source": "sample-codex.jsonl",
+            "line": 5,
+            "date": "2026-09-01",
+            "origin": "observed",
+            "status": "active",
+            "relevance": 31.766,
+            "matched_terms": [
+              "add",
+              "dependency",
+              "framework",
+              "library",
+              "local",
+              "python",
+              "server",
+              "standard",
+              "web"
+            ]
+          }
+        ],
+        "gate": "advisory",
+        "created": "2026-09-09T02:42:10.472+00:00",
+        "decision": {
+          "id": "dec_4850c676e8ee47cf832c",
+          "consultation_id": "ask_88044d2b8f0d41cbaacd",
+          "run_id": "run_bce5b5a712e0421593a4",
+          "choice": "Use the Python standard library",
+          "rationale": "The earlier user chose the standard library for a small local server and explained the dependency tradeoff.",
+          "evidence_ids": [
+            "e_224e434623335c13b0be"
+          ],
+          "basis": "prediction",
+          "confidence": "medium",
+          "review": "corrected",
+          "correction": "Keep the Python standard library for this small local server, but use an existing web framework when the project already has one.",
+          "created": "2026-09-09T02:42:10.473+00:00"
+        }
+      },
+      {
+        "id": "ask_19a25d777e164a50b650",
+        "run_id": "run_bce5b5a712e0421593a4",
+        "question": "How should the reading list controls be labeled?",
+        "options": [
+          "Use visible text labels",
+          "Use icons alone"
+        ],
+        "kind": "design",
+        "evidence": [
+          {
+            "id": "e_b7375cd88a192f503713",
+            "fingerprint": "b7375cd88a192f50371319aa35d13cff84c7428d536ccd754fbd0f4987948610",
+            "scope": "global",
+            "situation": "Should we label the reading list controls with icons only, or visible text labels?",
+            "call": "Use visible text labels for reading list controls because people should understand what clicking will do.",
+            "quote": "Use visible text labels for reading list controls because people should understand what clicking will do.",
+            "domain": "other",
+            "source": "sample-claude.jsonl",
+            "line": 2,
+            "date": "2026-09-02",
+            "origin": "observed",
+            "status": "active",
+            "relevance": 23.29,
+            "matched_terms": [
+              "control",
+              "icon",
+              "label",
+              "list",
+              "reading",
+              "text",
+              "visible"
+            ]
+          },
+          {
+            "id": "e_7b5d82e2343a4ab4177e",
+            "fingerprint": "7b5d82e2343a4ab4177ec67fb6dce953ee84245c49d4baf0f6873ea7c039bfa5",
+            "scope": "global",
+            "situation": "For a personal local reading list, should we use SQLite storage or a hosted Postgres database?",
+            "call": "Use SQLite for single-user local storage because I want the data to survive restarts without running another database service.",
+            "quote": "Use SQLite for single-user local storage because I want the data to survive restarts without running another database service.",
+            "domain": "product",
+            "source": "sample-codex.jsonl",
+            "line": 3,
+            "date": "2026-09-01",
+            "origin": "observed",
+            "status": "active",
+            "relevance": 3.022,
+            "matched_terms": [
+              "list",
+              "reading"
+            ]
+          }
+        ],
+        "gate": "advisory",
+        "created": "2026-09-09T02:42:10.475+00:00",
+        "decision": {
+          "id": "dec_7476f618fe1245e596a6",
+          "consultation_id": "ask_19a25d777e164a50b650",
+          "run_id": "run_bce5b5a712e0421593a4",
+          "choice": "Use visible text labels",
+          "rationale": "The user previously chose visible text labels for this exact kind of control.",
+          "evidence_ids": [
+            "e_b7375cd88a192f503713"
+          ],
+          "basis": "prediction",
+          "confidence": "medium",
+          "review": "pending",
+          "correction": null,
+          "created": "2026-09-09T02:42:10.476+00:00"
+        }
+      },
+      {
+        "id": "ask_24c384cf57104cee9522",
+        "run_id": "run_bce5b5a712e0421593a4",
+        "question": "Should I publish the finished reading list now?",
+        "options": [
+          "Publish now",
+          "Wait for the user"
+        ],
+        "kind": "permission",
+        "evidence": [
+          {
+            "id": "e_b7375cd88a192f503713",
+            "fingerprint": "b7375cd88a192f50371319aa35d13cff84c7428d536ccd754fbd0f4987948610",
+            "scope": "global",
+            "situation": "Should we label the reading list controls with icons only, or visible text labels?",
+            "call": "Use visible text labels for reading list controls because people should understand what clicking will do.",
+            "quote": "Use visible text labels for reading list controls because people should understand what clicking will do.",
+            "domain": "other",
+            "source": "sample-claude.jsonl",
+            "line": 2,
+            "date": "2026-09-02",
+            "origin": "observed",
+            "status": "active",
+            "relevance": 6.043,
+            "matched_terms": [
+              "list",
+              "reading"
+            ]
+          },
+          {
+            "id": "e_7b5d82e2343a4ab4177e",
+            "fingerprint": "7b5d82e2343a4ab4177ec67fb6dce953ee84245c49d4baf0f6873ea7c039bfa5",
+            "scope": "global",
+            "situation": "For a personal local reading list, should we use SQLite storage or a hosted Postgres database?",
+            "call": "Use SQLite for single-user local storage because I want the data to survive restarts without running another database service.",
+            "quote": "Use SQLite for single-user local storage because I want the data to survive restarts without running another database service.",
+            "domain": "product",
+            "source": "sample-codex.jsonl",
+            "line": 3,
+            "date": "2026-09-01",
+            "origin": "observed",
+            "status": "active",
+            "relevance": 3.022,
+            "matched_terms": [
+              "list",
+              "reading"
+            ]
+          }
+        ],
+        "gate": "requires_user",
+        "created": "2026-09-09T02:42:10.477+00:00",
+        "decision": {
+          "id": "dec_03a3a2265747434c943f",
+          "consultation_id": "ask_24c384cf57104cee9522",
+          "run_id": "run_bce5b5a712e0421593a4",
+          "choice": "Wait for the user",
+          "rationale": "Preferences are not permission to publish. Keep the built app local.",
+          "evidence_ids": [],
+          "basis": "escalated",
+          "confidence": "low",
+          "review": "pending",
+          "correction": null,
+          "created": "2026-09-09T02:42:10.478+00:00"
+        }
+      }
+    ],
+    "summary": {
+      "consultations": 4,
+      "decisions": 4,
+      "predictions": 3,
+      "defaults": 0,
+      "escalations": 1,
+      "pending_review": 2,
+      "accepted": 1,
+      "corrected": 1,
+      "rejected": 0
+    }
+  },
+  "next_run": {
+    "run": {
+      "id": "run_1a69c601e6574ef59e39",
+      "task": "Add a reading list endpoint to a project with an existing web framework.",
+      "scope": "sample-reading-list",
+      "status": "complete",
+      "created": "2026-09-09T02:42:10.483+00:00",
+      "finished": "2026-09-09T02:42:10.487+00:00",
+      "mode": "autopilot"
+    },
+    "consultations": [
+      {
+        "id": "ask_f913b781772541918c59",
+        "run_id": "run_1a69c601e6574ef59e39",
+        "question": "The project already has a web framework. Should this endpoint use that framework or the Python standard library?",
+        "options": [
+          "Reuse the existing web framework",
+          "Write a separate standard-library server"
+        ],
+        "kind": "dependency",
+        "evidence": [
+          {
+            "id": "e_a0e15339d35e429c6803",
+            "fingerprint": "a0e15339d35e429c6803f31c899ae2bd008f9089928c833dace481f8c92ec213",
+            "scope": "sample-reading-list",
+            "situation": "Should the local Python web server use a framework dependency?",
+            "call": "Keep the Python standard library for this small local server, but use an existing web framework when the project already has one.",
+            "quote": "Keep the Python standard library for this small local server, but use an existing web framework when the project already has one.",
+            "domain": "dependency",
+            "source": "review:dec_4850c676e8ee47cf832c",
+            "line": 0,
+            "date": "2026-09-09",
+            "origin": "endorsed",
+            "status": "active",
+            "relevance": 34.923,
+            "matched_terms": [
+              "already",
+              "existing",
+              "framework",
+              "library",
+              "python",
+              "server",
+              "standard",
+              "web"
+            ]
+          },
+          {
+            "id": "e_224e434623335c13b0be",
+            "fingerprint": "224e434623335c13b0bec9df69fa0b7530d0e8dc6dc13d00cc87e6d285e5848e",
+            "scope": "global",
+            "situation": "Should the local web server add a framework dependency, or use the existing Python standard library?",
+            "call": "Keep the Python standard library for a small local web server. Avoid a framework dependency because installing and maintaining it is extra work.",
+            "quote": "Keep the Python standard library for a small local web server. Avoid a framework dependency because installing and maintaining it is extra work.",
+            "domain": "factory",
+            "source": "sample-codex.jsonl",
+            "line": 5,
+            "date": "2026-09-01",
+            "origin": "observed",
+            "status": "active",
+            "relevance": 24.015,
+            "matched_terms": [
+              "existing",
+              "framework",
+              "library",
+              "python",
+              "server",
+              "standard",
+              "web"
+            ]
+          }
+        ],
+        "gate": "advisory",
+        "created": "2026-09-09T02:42:10.485+00:00",
+        "decision": {
+          "id": "dec_ff661b00e83c4795bfc1",
+          "consultation_id": "ask_f913b781772541918c59",
+          "run_id": "run_1a69c601e6574ef59e39",
+          "choice": "Reuse the existing web framework",
+          "rationale": "The explicitly corrected preference covers projects with an existing framework; it is more specific than the original small-server choice.",
+          "evidence_ids": [
+            "e_a0e15339d35e429c6803"
+          ],
+          "basis": "prediction",
+          "confidence": "medium",
+          "review": "pending",
+          "correction": null,
+          "created": "2026-09-09T02:42:10.486+00:00"
+        }
+      }
+    ],
+    "summary": {
+      "consultations": 1,
+      "decisions": 1,
+      "predictions": 1,
+      "defaults": 0,
+      "escalations": 0,
+      "pending_review": 1,
+      "accepted": 0,
+      "corrected": 0,
+      "rejected": 0
+    }
+  },
+  "checks": [
+    "Native Codex and Claude human messages imported",
+    "System and tool messages excluded",
+    "Repeated import deduplicated",
+    "Every predicted choice cites a stored source",
+    "Publication escalated",
+    "Pending predictions never learned",
+    "Human correction changes the evidence for the next run",
+    "Original prediction preserved"
+  ]
+}

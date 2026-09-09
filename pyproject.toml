@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=42"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "usual"
+version = "2.0.0b2"
+description = "Local judgment autopilot for Codex and Claude Code, with evidence and run review."
+requires-python = ">=3.11"
+# NO runtime deps — stdlib only (spec §2)
+dependencies = []
+
+[tool.pytest.ini_options]
+testpaths = ["tests", "demo/reading-list"]
+pythonpath = ["src"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+usual = ["*.html", "public/*"]
+
+[project.scripts]
+usual = "usual.cli:main"
+usual-server = "usual.server:main"
+usual-build-exam = "usual.build_exam:_main"
+usual-grade = "usual.grade:_main"
+usual-redact = "usual.redact:_main"

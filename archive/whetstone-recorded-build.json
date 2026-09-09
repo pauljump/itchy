@@ -1,0 +1,241 @@
+{
+  "mode": "recorded_agent_build",
+  "agent": "Codex development session, using the Whetstone CLI workflow",
+  "date": "2026-09-07",
+  "disclosure": "Actual agent judgments logged before implementation; synthetic input history. This is not an external Codex CLI or Claude Code skill-discovery test. No human verdicts were supplied.",
+  "validation": {
+    "backend_tests_passed": 3,
+    "browser_tested": false,
+    "external_clients_tested": false
+  },
+  "artifact_sha256": {
+    "app.py": "a570012b56be7d1cbf349d251d93d55d949e0090e5e1cb9613f768956d3c89b5",
+    "test_app.py": "4795e928e7ee479e9a2fa0948993ba7e7f90615b4e04dd2eb5350a8a963e811c"
+  },
+  "report": {
+    "run": {
+      "id": "run_4d89dce32b0e485082cc",
+      "task": "Build a local reading list with title and URL, read status, and filters; package runnable app and receipts for the Whetstone end-to-end demo.",
+      "scope": "sample-reading-list",
+      "status": "complete",
+      "created": "2026-09-07T22:55:34.159+00:00",
+      "finished": "2026-09-07T22:58:28.105+00:00"
+    },
+    "consultations": [
+      {
+        "id": "ask_d473af8b186f4f129aed",
+        "run_id": "run_4d89dce32b0e485082cc",
+        "question": "For this single-user local reading list, use SQLite storage or a hosted Postgres database to survive restarts?",
+        "options": [
+          "Use SQLite stored on the local computer",
+          "Use hosted Postgres"
+        ],
+        "kind": "implementation",
+        "evidence": [
+          {
+            "id": "e_518722c6a05d2ca789e8",
+            "fingerprint": "518722c6a05d2ca789e809fbee375334223cd9f941118af5b4c04a3a5e9950b8",
+            "scope": "sample-reading-list",
+            "situation": "For a personal local reading list, should we use SQLite storage or a hosted Postgres database?",
+            "call": "Use SQLite for single-user local storage because I want the data to survive restarts without running another database service.",
+            "quote": "Use SQLite for single-user local storage because I want the data to survive restarts without running another database service.",
+            "domain": "product",
+            "source": "sample-codex.jsonl",
+            "line": 3,
+            "date": "2026-09-01",
+            "origin": "observed",
+            "status": "active",
+            "relevance": 32.871,
+            "matched_terms": [
+              "database",
+              "hosted",
+              "list",
+              "local",
+              "postgre",
+              "reading",
+              "restart",
+              "single-user",
+              "sqlite",
+              "storage",
+              "survive"
+            ]
+          },
+          {
+            "id": "e_984c33359dedec36cabd",
+            "fingerprint": "984c33359dedec36cabd75a88eb14820141f12ba4133cdaf690513b1d5656518",
+            "scope": "sample-reading-list",
+            "situation": "Should we label the reading list controls with icons only, or visible text labels?",
+            "call": "Use visible text labels for reading list controls because people should understand what clicking will do.",
+            "quote": "Use visible text labels for reading list controls because people should understand what clicking will do.",
+            "domain": "other",
+            "source": "sample-claude.jsonl",
+            "line": 2,
+            "date": "2026-09-02",
+            "origin": "observed",
+            "status": "active",
+            "relevance": 6.043,
+            "matched_terms": [
+              "list",
+              "reading"
+            ]
+          }
+        ],
+        "gate": "advisory",
+        "created": "2026-09-07T22:55:46.543+00:00",
+        "decision": {
+          "id": "dec_01a646b537c4430b920e",
+          "consultation_id": "ask_d473af8b186f4f129aed",
+          "run_id": "run_4d89dce32b0e485082cc",
+          "choice": "Use SQLite stored on the local computer",
+          "rationale": "The sample user explicitly chose SQLite for the same single-user reading-list context and persistence requirement. A local database fits this task without an external service.",
+          "evidence_ids": [
+            "e_518722c6a05d2ca789e8"
+          ],
+          "basis": "prediction",
+          "confidence": "high",
+          "review": "pending",
+          "correction": null,
+          "created": "2026-09-07T22:56:00.534+00:00"
+        }
+      },
+      {
+        "id": "ask_13f095b34fea4f61ba81",
+        "run_id": "run_4d89dce32b0e485082cc",
+        "question": "For a small local Python web server in an empty project, use the standard library or install a web framework dependency?",
+        "options": [
+          "Use the Python standard library",
+          "Install a web framework"
+        ],
+        "kind": "dependency",
+        "evidence": [
+          {
+            "id": "e_692f5aebad1c7e3ff654",
+            "fingerprint": "692f5aebad1c7e3ff6549ec830ea266ca3d3845cbbdc784423b0e14cb9ab0e1a",
+            "scope": "sample-reading-list",
+            "situation": "Should the local web server add a framework dependency, or use the existing Python standard library?",
+            "call": "Keep the Python standard library for a small local web server. Avoid a framework dependency because installing and maintaining it is extra work.",
+            "quote": "Keep the Python standard library for a small local web server. Avoid a framework dependency because installing and maintaining it is extra work.",
+            "domain": "factory",
+            "source": "sample-codex.jsonl",
+            "line": 5,
+            "date": "2026-09-01",
+            "origin": "observed",
+            "status": "active",
+            "relevance": 33.682,
+            "matched_terms": [
+              "dependency",
+              "framework",
+              "library",
+              "local",
+              "python",
+              "server",
+              "small",
+              "standard",
+              "web"
+            ]
+          }
+        ],
+        "gate": "advisory",
+        "created": "2026-09-07T22:55:46.629+00:00",
+        "decision": {
+          "id": "dec_6c837fe465a94a6689f2",
+          "consultation_id": "ask_13f095b34fea4f61ba81",
+          "run_id": "run_4d89dce32b0e485082cc",
+          "choice": "Use the Python standard library",
+          "rationale": "This is a new, small local server with no installed framework to preserve. The cited sample choice directly covers that context and favors reducing setup work.",
+          "evidence_ids": [
+            "e_692f5aebad1c7e3ff654"
+          ],
+          "basis": "prediction",
+          "confidence": "high",
+          "review": "pending",
+          "correction": null,
+          "created": "2026-09-07T22:56:00.617+00:00"
+        }
+      },
+      {
+        "id": "ask_62330c4e86b849ecbdf4",
+        "run_id": "run_4d89dce32b0e485082cc",
+        "question": "For reading list controls and filters, show visible text labels or icons alone?",
+        "options": [
+          "Show visible text labels on all controls",
+          "Use icons alone"
+        ],
+        "kind": "design",
+        "evidence": [
+          {
+            "id": "e_984c33359dedec36cabd",
+            "fingerprint": "984c33359dedec36cabd75a88eb14820141f12ba4133cdaf690513b1d5656518",
+            "scope": "sample-reading-list",
+            "situation": "Should we label the reading list controls with icons only, or visible text labels?",
+            "call": "Use visible text labels for reading list controls because people should understand what clicking will do.",
+            "quote": "Use visible text labels for reading list controls because people should understand what clicking will do.",
+            "domain": "other",
+            "source": "sample-claude.jsonl",
+            "line": 2,
+            "date": "2026-09-02",
+            "origin": "observed",
+            "status": "active",
+            "relevance": 23.29,
+            "matched_terms": [
+              "control",
+              "icon",
+              "label",
+              "list",
+              "reading",
+              "text",
+              "visible"
+            ]
+          },
+          {
+            "id": "e_518722c6a05d2ca789e8",
+            "fingerprint": "518722c6a05d2ca789e809fbee375334223cd9f941118af5b4c04a3a5e9950b8",
+            "scope": "sample-reading-list",
+            "situation": "For a personal local reading list, should we use SQLite storage or a hosted Postgres database?",
+            "call": "Use SQLite for single-user local storage because I want the data to survive restarts without running another database service.",
+            "quote": "Use SQLite for single-user local storage because I want the data to survive restarts without running another database service.",
+            "domain": "product",
+            "source": "sample-codex.jsonl",
+            "line": 3,
+            "date": "2026-09-01",
+            "origin": "observed",
+            "status": "active",
+            "relevance": 3.022,
+            "matched_terms": [
+              "list",
+              "reading"
+            ]
+          }
+        ],
+        "gate": "advisory",
+        "created": "2026-09-07T22:55:46.713+00:00",
+        "decision": {
+          "id": "dec_a4f351233acc4a19a44e",
+          "consultation_id": "ask_62330c4e86b849ecbdf4",
+          "run_id": "run_4d89dce32b0e485082cc",
+          "choice": "Show visible text labels on all controls",
+          "rationale": "The sample choice specifically names reading-list controls and understandable actions. Use visible Add to list, Mark read, Mark unread, and filter labels.",
+          "evidence_ids": [
+            "e_984c33359dedec36cabd"
+          ],
+          "basis": "prediction",
+          "confidence": "high",
+          "review": "pending",
+          "correction": null,
+          "created": "2026-09-07T22:56:00.702+00:00"
+        }
+      }
+    ],
+    "summary": {
+      "consultations": 3,
+      "decisions": 3,
+      "predictions": 3,
+      "defaults": 0,
+      "escalations": 0,
+      "pending_review": 3,
+      "accepted": 0,
+      "corrected": 0,
+      "rejected": 0
+    }
+  }
+}

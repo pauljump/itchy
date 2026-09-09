@@ -1,0 +1,63 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://usual.dev/schema/judgment-entry.schema.json",
+  "title": "Usual Judgment Entry",
+  "description": "One mined judgment: a decision the USER made, with reasons and provenance. One JSONL line per entry. The `id` field is added by the exam builder at load time and is NOT stored in the mining JSONL.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["situation", "call", "reasons", "domain", "date", "provenance", "confidence"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Added by build_exam.py at load time (w<wave>b<batch>:<lineno>). NOT present in mining JSONL.",
+      "pattern": "^w[0-9]+b[0-9]+:[0-9]+$"
+    },
+    "situation": {
+      "type": "string",
+      "description": "The decision context, neutral third-person, no answer leaked.",
+      "minLength": 1
+    },
+    "call": {
+      "type": "string",
+      "description": "The decision the USER made (not the assistant).",
+      "minLength": 1
+    },
+    "reasons": {
+      "type": "array",
+      "description": "Reasons the user actually gave, verbatim-grounded. May be [] if none stated.",
+      "items": { "type": "string" }
+    },
+    "domain": {
+      "type": "string",
+      "enum": ["product", "design", "people", "money", "factory", "voice", "other"]
+    },
+    "date": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$",
+      "description": "YYYY-MM-DD."
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["file", "quote"],
+      "properties": {
+        "file": {
+          "type": "string",
+          "description": "Transcript basename (or 'interview' for interview-mode entries).",
+          "minLength": 1
+        },
+        "quote": {
+          "type": "string",
+          "description": "Verbatim user words that anchor the call.",
+          "minLength": 1
+        }
+      }
+    },
+    "confidence": {
+      "type": "number",
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "description": "Miner's confidence this is a real, non-trivial user judgment."
+    }
+  }
+}
