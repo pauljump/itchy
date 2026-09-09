@@ -88,9 +88,20 @@ def test_public_site_never_accepts_or_exposes_private_data():
         connection.request('GET', '/whetstone.zip', headers={'Host': 'whetstone.polyfeeds.dev'})
         response = connection.getresponse()
         assert response.status == 308
-        assert response.getheader('Location') == 'https://usual.polyfeeds.dev/usual.zip'
+        assert response.getheader('Location') == 'https://tryusual.com/usual.zip'
         response.read()
         connection.close()
+        for hostname in ['usual.polyfeeds.dev', 'whetstone.polyfeeds.dev', 'WWW.TRYUSUAL.COM:443']:
+            for method in ['GET', 'HEAD']:
+                for path, target in [('/learn.md?from=share', '/learn.md?from=share'),
+                                     ('/whetstone.zip?download=1', '/usual.zip?download=1')]:
+                    connection = http.client.HTTPConnection('127.0.0.1', server.server_port)
+                    connection.request(method, path, headers={'Host': hostname, 'X-Forwarded-Host': 'untrusted.example'})
+                    response = connection.getresponse()
+                    assert response.status == 308
+                    assert response.getheader('Location') == 'https://tryusual.com' + target
+                    assert response.read() == b''
+                    connection.close()
     finally:
         server.shutdown()
         server.server_close()
@@ -119,7 +130,7 @@ def test_share_crawlers_can_fetch_the_declared_image():
         assert tags['og:image'] == tags['twitter:image']
         assert tags['og:image:alt'] and tags['twitter:image:alt']
         image_url = urllib.parse.urlparse(tags['og:image'])
-        assert image_url.scheme == 'https' and image_url.netloc == 'usual.polyfeeds.dev'
+        assert image_url.scheme == 'https' and image_url.netloc == 'tryusual.com'
         with urllib.request.urlopen(base + image_url.path) as response:
             data = response.read()
             assert response.headers.get_content_type() == 'image/png'

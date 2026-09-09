@@ -1307,11 +1307,14 @@ class PublicAutopilotHandler(BaseHTTPRequestHandler):
         path = urllib.parse.urlparse(self.path).path
         # Keep old installation links usable after the product rename. The target
         # origin is fixed; request headers never choose a redirect destination.
-        legacy_host = self.headers.get("Host", "").lower().split(":", 1)[0] == "whetstone.polyfeeds.dev"
+        legacy_host = self.headers.get("Host", "").lower().split(":", 1)[0] in {
+            "www.tryusual.com", "usual.polyfeeds.dev", "whetstone.polyfeeds.dev",
+        }
         if legacy_host or path == "/whetstone.zip":
             destination = "/usual.zip" if path == "/whetstone.zip" else path
             self.send_response(308)
-            self.send_header("Location", "https://usual.polyfeeds.dev" + destination)
+            query = urllib.parse.urlparse(self.path).query
+            self.send_header("Location", urllib.parse.urlunsplit(("https", "tryusual.com", destination, query, "")))
             self.send_header("Content-Length", "0")
             self.end_headers()
             return

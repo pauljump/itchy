@@ -19,7 +19,7 @@
       "call": "Keep the Python standard library for this small local server, but use an existing web framework when the project already has one.",
       "quote": "Keep the Python standard library for this small local server, but use an existing web framework when the project already has one.",
       "domain": "dependency",
-      "source": "review:dec_64f0c1286441463abdf9",
+      "source": "review:dec_7a4c86ca89d8430d9398",
       "line": 0,
       "date": "2026-09-09",
       "origin": "endorsed",
@@ -33,7 +33,7 @@
       "call": "Use SQLite",
       "quote": "Use SQLite",
       "domain": "implementation",
-      "source": "review:dec_dd72608d1c204d2aa138",
+      "source": "review:dec_ebf143c8789b469e906c",
       "line": 0,
       "date": "2026-09-09",
       "origin": "endorsed",
@@ -98,18 +98,18 @@
   ],
   "before_review": {
     "run": {
-      "id": "run_ec0acd4894374d16954a",
+      "id": "run_a835717252b844528aaa",
       "task": "Build a local reading list with durable storage and clear controls.",
       "scope": "sample-reading-list",
       "status": "complete",
-      "created": "2026-09-09T03:47:53.509+00:00",
-      "finished": "2026-09-09T03:47:53.519+00:00",
+      "created": "2026-09-09T04:13:57.149+00:00",
+      "finished": "2026-09-09T04:13:57.157+00:00",
       "mode": "autopilot"
     },
     "consultations": [
       {
-        "id": "ask_45d0d9f8098c4dcd97ca",
-        "run_id": "run_ec0acd4894374d16954a",
+        "id": "ask_39fcc5f1b2994e64a2d8",
+        "run_id": "run_a835717252b844528aaa",
         "question": "Which storage fits this single-user local reading list?",
         "options": [
           "Use SQLite",
@@ -163,11 +163,11 @@
           }
         ],
         "gate": "advisory",
-        "created": "2026-09-09T03:47:53.511+00:00",
+        "created": "2026-09-09T04:13:57.150+00:00",
         "decision": {
-          "id": "dec_dd72608d1c204d2aa138",
-          "consultation_id": "ask_45d0d9f8098c4dcd97ca",
-          "run_id": "run_ec0acd4894374d16954a",
+          "id": "dec_ebf143c8789b469e906c",
+          "consultation_id": "ask_39fcc5f1b2994e64a2d8",
+          "run_id": "run_a835717252b844528aaa",
           "choice": "Use SQLite",
           "rationale": "The earlier user explicitly chose SQLite for single-user local storage to avoid another service.",
           "evidence_ids": [
@@ -177,12 +177,12 @@
           "confidence": "medium",
           "review": "pending",
           "correction": null,
-          "created": "2026-09-09T03:47:53.512+00:00"
+          "created": "2026-09-09T04:13:57.151+00:00"
         }
       },
       {
-        "id": "ask_e2907051d76f41ea8574",
-        "run_id": "run_ec0acd4894374d16954a",
+        "id": "ask_292c8c767c41454681fe",
+        "run_id": "run_a835717252b844528aaa",
         "question": "Should the local Python web server use a framework dependency?",
         "options": [
           "Use the Python standard library",
@@ -218,11 +218,11 @@
           }
         ],
         "gate": "advisory",
-        "created": "2026-09-09T03:47:53.513+00:00",
+        "created": "2026-09-09T04:13:57.152+00:00",
         "decision": {
-          "id": "dec_64f0c1286441463abdf9",
-          "consultation_id": "ask_e2907051d76f41ea8574",
-          "run_id": "run_ec0acd4894374d16954a",
+          "id": "dec_7a4c86ca89d8430d9398",
+          "consultation_id": "ask_292c8c767c41454681fe",
+          "run_id": "run_a835717252b844528aaa",
           "choice": "Use the Python standard library",
           "rationale": "The earlier user chose the standard library for a small local server and explained the dependency tradeoff.",
           "evidence_ids": [
@@ -232,12 +232,12 @@
           "confidence": "medium",
           "review": "pending",
           "correction": null,
-          "created": "2026-09-09T03:47:53.514+00:00"
+          "created": "2026-09-09T04:13:57.153+00:00"
         }
       },
       {
-        "id": "ask_5578ce40d1f14788990d",
-        "run_id": "run_ec0acd4894374d16954a",
+        "id": "ask_dc9ded70a2d34e75b6e7",
+        "run_id": "run_a835717252b844528aaa",
         "question": "How should the reading list controls be labeled?",
         "options": [
           "Use visible text labels",
@@ -290,11 +290,11 @@
           }
         ],
         "gate": "advisory",
-        "created": "2026-09-09T03:47:53.515+00:00",
+        "created": "2026-09-09T04:13:57.154+00:00",
         "decision": {
-          "id": "dec_11329376224749c28e9d",
-          "consultation_id": "ask_5578ce40d1f14788990d",
-          "run_id": "run_ec0acd4894374d16954a",
+          "id": "dec_4c58497f3bc549a591be",
+          "consultation_id": "ask_dc9ded70a2d34e75b6e7",
+          "run_id": "run_a835717252b844528aaa",
           "choice": "Use visible text labels",
           "rationale": "The user previously chose visible text labels for this exact kind of control.",
           "evidence_ids": [
@@ -304,12 +304,12 @@
           "confidence": "medium",
           "review": "pending",
           "correction": null,
-          "created": "2026-09-09T03:47:53.516+00:00"
+          "created": "2026-09-09T04:13:57.155+00:00"
         }
       },
       {
-        "id": "ask_76be621cdfbc4e69baeb",
-        "run_id": "run_ec0acd4894374d16954a",
+        "id": "ask_b8178a83ee974ed58596",
+        "run_id": "run_a835717252b844528aaa",
         "question": "Should I publish the finished reading list now?",
         "options": [
           "Publish now",
@@ -357,11 +357,11 @@
           }
         ],
         "gate": "requires_user",
-        "created": "2026-09-09T03:47:53.518+00:00",
+        "created": "2026-09-09T04:13:57.156+00:00",
         "decision": {
-          "id": "dec_db42fcd2c0ca435e9d4f",
-          "consultation_id": "ask_76be621cdfbc4e69baeb",
-          "run_id": "run_ec0acd4894374d16954a",
+          "id": "dec_1bb830f00e3e4a00a9d8",
+          "consultation_id": "ask_b8178a83ee974ed58596",
+          "run_id": "run_a835717252b844528aaa",
           "choice": "Wait for the user",
           "rationale": "Preferences are not permission to publish. Keep the built app local.",
           "evidence_ids": [],
@@ -369,7 +369,7 @@
           "confidence": "low",
           "review": "pending",
           "correction": null,
-          "created": "2026-09-09T03:47:53.519+00:00"
+          "created": "2026-09-09T04:13:57.156+00:00"
         }
       }
     ],
@@ -387,18 +387,18 @@
   },
   "after_review": {
     "run": {
-      "id": "run_ec0acd4894374d16954a",
+      "id": "run_a835717252b844528aaa",
       "task": "Build a local reading list with durable storage and clear controls.",
       "scope": "sample-reading-list",
       "status": "complete",
-      "created": "2026-09-09T03:47:53.509+00:00",
-      "finished": "2026-09-09T03:47:53.519+00:00",
+      "created": "2026-09-09T04:13:57.149+00:00",
+      "finished": "2026-09-09T04:13:57.157+00:00",
       "mode": "autopilot"
     },
     "consultations": [
       {
-        "id": "ask_45d0d9f8098c4dcd97ca",
-        "run_id": "run_ec0acd4894374d16954a",
+        "id": "ask_39fcc5f1b2994e64a2d8",
+        "run_id": "run_a835717252b844528aaa",
         "question": "Which storage fits this single-user local reading list?",
         "options": [
           "Use SQLite",
@@ -452,11 +452,11 @@
           }
         ],
         "gate": "advisory",
-        "created": "2026-09-09T03:47:53.511+00:00",
+        "created": "2026-09-09T04:13:57.150+00:00",
         "decision": {
-          "id": "dec_dd72608d1c204d2aa138",
-          "consultation_id": "ask_45d0d9f8098c4dcd97ca",
-          "run_id": "run_ec0acd4894374d16954a",
+          "id": "dec_ebf143c8789b469e906c",
+          "consultation_id": "ask_39fcc5f1b2994e64a2d8",
+          "run_id": "run_a835717252b844528aaa",
           "choice": "Use SQLite",
           "rationale": "The earlier user explicitly chose SQLite for single-user local storage to avoid another service.",
           "evidence_ids": [
@@ -466,12 +466,12 @@
           "confidence": "medium",
           "review": "accepted",
           "correction": null,
-          "created": "2026-09-09T03:47:53.512+00:00"
+          "created": "2026-09-09T04:13:57.151+00:00"
         }
       },
       {
-        "id": "ask_e2907051d76f41ea8574",
-        "run_id": "run_ec0acd4894374d16954a",
+        "id": "ask_292c8c767c41454681fe",
+        "run_id": "run_a835717252b844528aaa",
         "question": "Should the local Python web server use a framework dependency?",
         "options": [
           "Use the Python standard library",
@@ -507,11 +507,11 @@
           }
         ],
         "gate": "advisory",
-        "created": "2026-09-09T03:47:53.513+00:00",
+        "created": "2026-09-09T04:13:57.152+00:00",
         "decision": {
-          "id": "dec_64f0c1286441463abdf9",
-          "consultation_id": "ask_e2907051d76f41ea8574",
-          "run_id": "run_ec0acd4894374d16954a",
+          "id": "dec_7a4c86ca89d8430d9398",
+          "consultation_id": "ask_292c8c767c41454681fe",
+          "run_id": "run_a835717252b844528aaa",
           "choice": "Use the Python standard library",
           "rationale": "The earlier user chose the standard library for a small local server and explained the dependency tradeoff.",
           "evidence_ids": [
@@ -521,12 +521,12 @@
           "confidence": "medium",
           "review": "corrected",
           "correction": "Keep the Python standard library for this small local server, but use an existing web framework when the project already has one.",
-          "created": "2026-09-09T03:47:53.514+00:00"
+          "created": "2026-09-09T04:13:57.153+00:00"
         }
       },
       {
-        "id": "ask_5578ce40d1f14788990d",
-        "run_id": "run_ec0acd4894374d16954a",
+        "id": "ask_dc9ded70a2d34e75b6e7",
+        "run_id": "run_a835717252b844528aaa",
         "question": "How should the reading list controls be labeled?",
         "options": [
           "Use visible text labels",
@@ -579,11 +579,11 @@
           }
         ],
         "gate": "advisory",
-        "created": "2026-09-09T03:47:53.515+00:00",
+        "created": "2026-09-09T04:13:57.154+00:00",
         "decision": {
-          "id": "dec_11329376224749c28e9d",
-          "consultation_id": "ask_5578ce40d1f14788990d",
-          "run_id": "run_ec0acd4894374d16954a",
+          "id": "dec_4c58497f3bc549a591be",
+          "consultation_id": "ask_dc9ded70a2d34e75b6e7",
+          "run_id": "run_a835717252b844528aaa",
           "choice": "Use visible text labels",
           "rationale": "The user previously chose visible text labels for this exact kind of control.",
           "evidence_ids": [
@@ -593,12 +593,12 @@
           "confidence": "medium",
           "review": "pending",
           "correction": null,
-          "created": "2026-09-09T03:47:53.516+00:00"
+          "created": "2026-09-09T04:13:57.155+00:00"
         }
       },
       {
-        "id": "ask_76be621cdfbc4e69baeb",
-        "run_id": "run_ec0acd4894374d16954a",
+        "id": "ask_b8178a83ee974ed58596",
+        "run_id": "run_a835717252b844528aaa",
         "question": "Should I publish the finished reading list now?",
         "options": [
           "Publish now",
@@ -646,11 +646,11 @@
           }
         ],
         "gate": "requires_user",
-        "created": "2026-09-09T03:47:53.518+00:00",
+        "created": "2026-09-09T04:13:57.156+00:00",
         "decision": {
-          "id": "dec_db42fcd2c0ca435e9d4f",
-          "consultation_id": "ask_76be621cdfbc4e69baeb",
-          "run_id": "run_ec0acd4894374d16954a",
+          "id": "dec_1bb830f00e3e4a00a9d8",
+          "consultation_id": "ask_b8178a83ee974ed58596",
+          "run_id": "run_a835717252b844528aaa",
           "choice": "Wait for the user",
           "rationale": "Preferences are not permission to publish. Keep the built app local.",
           "evidence_ids": [],
@@ -658,7 +658,7 @@
           "confidence": "low",
           "review": "pending",
           "correction": null,
-          "created": "2026-09-09T03:47:53.519+00:00"
+          "created": "2026-09-09T04:13:57.156+00:00"
         }
       }
     ],
@@ -676,18 +676,18 @@
   },
   "next_run": {
     "run": {
-      "id": "run_a803531da4bc42c093b4",
+      "id": "run_e0e35d8935a943c59aba",
       "task": "Add a reading list endpoint to a project with an existing web framework.",
       "scope": "sample-reading-list",
       "status": "complete",
-      "created": "2026-09-09T03:47:53.523+00:00",
-      "finished": "2026-09-09T03:47:53.526+00:00",
+      "created": "2026-09-09T04:13:57.160+00:00",
+      "finished": "2026-09-09T04:13:57.162+00:00",
       "mode": "autopilot"
     },
     "consultations": [
       {
-        "id": "ask_868bc53fbd07422a8014",
-        "run_id": "run_a803531da4bc42c093b4",
+        "id": "ask_cc0a119d4c9e4ff2890e",
+        "run_id": "run_e0e35d8935a943c59aba",
         "question": "The project already has a web framework. Should this endpoint use that framework or the Python standard library?",
         "options": [
           "Reuse the existing web framework",
@@ -703,7 +703,7 @@
             "call": "Keep the Python standard library for this small local server, but use an existing web framework when the project already has one.",
             "quote": "Keep the Python standard library for this small local server, but use an existing web framework when the project already has one.",
             "domain": "dependency",
-            "source": "review:dec_64f0c1286441463abdf9",
+            "source": "review:dec_7a4c86ca89d8430d9398",
             "line": 0,
             "date": "2026-09-09",
             "origin": "endorsed",
@@ -746,11 +746,11 @@
           }
         ],
         "gate": "advisory",
-        "created": "2026-09-09T03:47:53.524+00:00",
+        "created": "2026-09-09T04:13:57.161+00:00",
         "decision": {
-          "id": "dec_1df44265af7a42aeb157",
-          "consultation_id": "ask_868bc53fbd07422a8014",
-          "run_id": "run_a803531da4bc42c093b4",
+          "id": "dec_82b62bc224054573837a",
+          "consultation_id": "ask_cc0a119d4c9e4ff2890e",
+          "run_id": "run_e0e35d8935a943c59aba",
           "choice": "Reuse the existing web framework",
           "rationale": "The explicitly corrected preference covers projects with an existing framework; it is more specific than the original small-server choice.",
           "evidence_ids": [
@@ -760,7 +760,7 @@
           "confidence": "medium",
           "review": "pending",
           "correction": null,
-          "created": "2026-09-09T03:47:53.525+00:00"
+          "created": "2026-09-09T04:13:57.162+00:00"
         }
       }
     ],

@@ -2,7 +2,7 @@
 
 **Your AI should know how you work.**
 
-[Website](https://usual.polyfeeds.dev) · [Learn Usual](LEARN.md) · [Source](https://github.com/pauljump/usual)
+[Website](https://tryusual.com) · [Learn Usual](LEARN.md) · [Source](https://github.com/pauljump/usual)
 
 Usual analyzes your local Claude and Codex conversations for the moments when an agent
 asked you to choose. It preserves the question, offered alternatives, your actual answer,
@@ -11,7 +11,7 @@ consult that history, make a reasoned call, and show you what it decided afterwa
 
 Tell your coding AI:
 
-> Learn Usual: https://usual.polyfeeds.dev/learn.md
+> Learn Usual: https://tryusual.com/learn.md
 
 It installs the skill and walks you through learning from your past decisions. Then:
 
@@ -182,7 +182,7 @@ python3 scripts/build_release.py
 PYTHONPATH=src python3 -m usual.server --autopilot-public --port 8794
 ```
 
-The release builder uses an explicit code-only allowlist and emits a SHA-256 manifest. It never packages private SQLite files, local reports, credentials, or real transcripts. Public deployment uses the `usual.polyfeeds.dev` Cloudflare Tunnel route, process `usual-web`, port 8230, through the control-plane fleet registry/vault runner. See [deploy/web.json](deploy/web.json).
+The release builder uses an explicit code-only allowlist and emits a SHA-256 manifest. It never packages private SQLite files, local reports, credentials, or real transcripts. Public deployment uses the `tryusual.com` Cloudflare Tunnel route, process `usual-web`, port 8230, through the control-plane fleet registry/vault runner. See [deploy/web.json](deploy/web.json).
 
 The earlier consumer onboarding and experimental studio remain local legacy interfaces. The old blinded-decision benchmark is historical, single-person research; it is not the production autopilot's accuracy score. Its original implementation remains in the repository's exam/grade modules and Git history.
 
