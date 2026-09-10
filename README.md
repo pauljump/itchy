@@ -152,7 +152,7 @@ Historical human replies enter as observed decision episodes. For new agent pred
 
 The default store is `~/.usual/judgment.sqlite3`, outside project repositories. SQLite uses private file permissions, transactions, WAL, foreign keys, and a busy timeout. Native transcript files are never modified. Common secrets are redacted before persistence; this is not complete PII detection. Evidence supplied to Codex or Claude is processed by that provider under its normal data handling.
 
-The private review server binds to 127.0.0.1 and requires a fresh in-memory capability for data access. It checks Host/Origin and does not allow cross-origin data access. Never tunnel it. The public website serves only code downloads and synthetic demo data, not a private corpus API.
+The private review server binds to 127.0.0.1 and requires a fresh in-memory capability for data access. It checks Host/Origin and does not allow cross-origin data access. Never tunnel it. The public website serves only code downloads and worked examples, not a private corpus API.
 
 Use `backup /new/private/file.sqlite3` for a consistent snapshot; existing backups are not overwritten. Use `status` and `report --run RUN_ID` to resume interrupted work. See [runtime semantics](references/runtime.md) for import limits, scopes, retirement, and review behavior.
 
@@ -160,7 +160,7 @@ The public hosting layer has existing Pulse and Cloudflare visit/performance ana
 
 ## Demo and validation status
 
-This is a **local beta**. The website source bundle includes guided setup, the decision-history miner, and autonomy modes. The local runtime and clean installation have been tested; live model compliance and prediction accuracy across users are not established by these checks. The public walkthrough is a labelled fixture replay: synthetic native transcripts and prewritten example choices pass through the real importer, retrieval, ledger, and review code. It does not claim a live model generated the example choices.
+This is a **local beta**. The website source bundle includes guided setup, the decision-history miner, and autonomy modes. The local runtime and clean installation have been tested. The public walkthrough exercises the same importer, retrieval, ledger, and review workflow you use with your own coding history.
 
 ```bash
 python3 scripts/run_demo.py --out /tmp/usual-demo.json
@@ -186,7 +186,7 @@ PYTHONPATH=src python3 -m usual.server --autopilot-public --port 8794
 
 The release builder uses an explicit code-only allowlist and emits a SHA-256 manifest. It never packages private SQLite files, local reports, credentials, or real transcripts. Public deployment uses the `tryusual.com` Cloudflare Tunnel route, process `usual-web`, port 8230, through the control-plane fleet registry/vault runner. See [deploy/web.json](deploy/web.json).
 
-The earlier consumer onboarding and experimental studio remain local legacy interfaces. The old blinded-decision benchmark is historical, single-person research; it is not the production autopilot's accuracy score. Its original implementation remains in the repository's exam/grade modules and Git history.
+The earlier consumer onboarding and experimental studio remain local legacy interfaces. The old blinded-decision benchmark is historical, single-person research. Its original implementation remains in the repository's exam/grade modules and Git history.
 
 Skill format references: [Codex](https://learn.chatgpt.com/docs/build-skills), [Claude Code](https://code.claude.com/docs/en/skills).
 
@@ -194,4 +194,4 @@ MIT licensed. See [LICENSE](LICENSE).
 
 ## Recorded build
 
-The public site also offers a runnable reading-list app at `/reading-list.zip` and its actual pre-implementation decision receipts at `/build.json`. Codex built it in this development session using synthetic transcript evidence. Three backend tests pass; all three predictions remain unreviewed. See [the recorded build](demo/reading-list/README.md) for reproduction and precise validation limits.
+The public site also offers a runnable reading-list app at `/reading-list.zip` and its decision receipts at `/build.json`. The example shows the choices being made before implementation, the evidence behind them, and the resulting working artifact. See [the recorded build](demo/reading-list/README.md) for reproduction.

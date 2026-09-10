@@ -1365,6 +1365,15 @@ class PublicAutopilotHandler(BaseHTTPRequestHandler):
         self.send_header("Content-Length", str(len(data)))
         self.send_header("Cache-Control", "no-store")
         self.send_header("X-Content-Type-Options", "nosniff")
+        if path in {
+            "/build.json",
+            "/demo.json",
+            "/learn.md",
+            "/reading-list.zip",
+            "/release.json",
+            "/usual.zip",
+        }:
+            self.send_header("X-Robots-Tag", "noindex, nofollow")
         if path in ("/usual.zip", "/reading-list.zip"):
             self.send_header("Content-Disposition", 'attachment; filename="' + path[1:] + '"')
         self.end_headers()
@@ -1407,7 +1416,7 @@ def main() -> None:
     parser.add_argument("--host", default="127.0.0.1", help="Bind host (default: 127.0.0.1)")
     parser.add_argument("--port", type=int, default=8780, help="Bind port (default: 8780)")
     parser.add_argument("--consumer-only", action="store_true", help="Serve only the consumer preview; disable shared developer APIs")
-    parser.add_argument("--autopilot-public", action="store_true", help="Serve only the autopilot website, synthetic demo, and code bundle")
+    parser.add_argument("--autopilot-public", action="store_true", help="Serve only the public Usual website, examples, and code bundle")
     args = parser.parse_args()
     if args.consumer_only and args.autopilot_public:
         parser.error("Choose one public mode.")

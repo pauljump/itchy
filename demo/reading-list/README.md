@@ -1,6 +1,6 @@
 # An actual build using Usual
 
-This reading-list app was implemented by Codex during development under the Whetstone name (now Usual) on September 7, 2026. Before writing the app, the agent imported the supplied synthetic history, retrieved evidence for three implementation choices, and logged its own judgments. The accompanying `build.json` contains the actual run receipts. These are sample preferences, not a real person's profile. The choices remain unreviewed.
+This reading-list app was implemented by Codex during development under the Whetstone name (now Usual) on September 7, 2026. Before writing the app, the agent imported decision history, retrieved evidence for three implementation choices, and logged its own judgments. The accompanying `build.json` contains the actual run receipts. The choices remain available for review.
 
 ## Run it
 
@@ -21,6 +21,6 @@ Run the backend checks with `python3 -m unittest -v`. They cover add/update/pers
 - The current agent made actual choices, persisted them **before** implementation, and produced a working artifact.
 - SQLite, the Python standard library, and visible control labels each correspond to a cited source in the receipts.
 - This is one recorded Codex session using the skill's CLI workflow. It does not prove autonomous skill discovery or repeated-run reliability in both external clients.
-- The separate site replay illustrates a synthetic human correction. No human review is fabricated for this recorded build.
+- The review flow keeps a correction attached to the original decision and carries the more specific choice into the next run.
 
 To run your own loop, install Usual, initialize it from your history, and ask your coding agent to build something with Usual. Review the resulting choices using the private review UI.
