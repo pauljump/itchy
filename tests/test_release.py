@@ -71,13 +71,45 @@ def test_public_site_never_accepts_or_exposes_private_data():
     try:
         with urllib.request.urlopen(base) as response:
             page=response.read().decode()
-            assert 'Less asking.' in page
+            assert 'LOCAL MEMORY FOR CODING AGENTS' in page
+            assert 'Local Memory for Claude Code and Codex' in page
+            assert 'application/ld+json' in page
+            assert 'href="/claude-code-memory/"' in page
             assert 'https://github.com/pauljump/usual' in page
             assert 'https://www.googletagmanager.com/gtag/js?id=G-Q5Z4208WNC' in page
             assert "gtag('config','G-Q5Z4208WNC')" in page
             assert 'https://pulse.polyfeeds.dev/api/ingest' in page
             assert "property:P" in page
             assert 'pulse_visitor_id' in page
+        for path, marker in [
+            ('/claude-code-memory/', 'Claude Code memory'),
+            ('/codex-memory/', 'Codex memory'),
+            ('/local-ai-coding-memory/', 'Local AI coding memory'),
+            ('/how-usual-works/', 'How it works'),
+            ('/examples/reading-list/', 'reading-list app'),
+            ('/privacy/', 'Privacy'),
+            ('/install/', 'Install Usual'),
+        ]:
+            with urllib.request.urlopen(base + path) as response:
+                assert response.status == 200
+                assert response.headers.get_content_type() == 'text/html'
+                assert marker.lower() in response.read().decode().lower()
+        with urllib.request.urlopen(base + '/sitemap.xml') as response:
+            sitemap = response.read().decode()
+            assert response.headers.get_content_type() == 'application/xml'
+            assert 'https://tryusual.com/install/' in sitemap
+        with urllib.request.urlopen(base + '/robots.txt') as response:
+            robots = response.read().decode()
+            assert 'Sitemap: https://tryusual.com/sitemap.xml' in robots
+        with urllib.request.urlopen(base + '/seo.css') as response:
+            assert response.headers.get_content_type() == 'text/css'
+        connection = http.client.HTTPConnection('127.0.0.1', server.server_port)
+        connection.request('GET', '/install')
+        redirect = connection.getresponse()
+        assert redirect.status == 308
+        assert redirect.getheader('Location') == '/install/'
+        redirect.read()
+        connection.close()
         with urllib.request.urlopen(base+'/demo.json') as response:
             demo=json.load(response)
             assert demo['mode']=='fixture_replay'

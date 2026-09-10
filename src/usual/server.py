@@ -1294,6 +1294,16 @@ class PublicAutopilotHandler(BaseHTTPRequestHandler):
     ASSETS = {
         "/": ("autopilot.html", "text/html; charset=utf-8"),
         "/index.html": ("autopilot.html", "text/html; charset=utf-8"),
+        "/claude-code-memory/": ("claude-code-memory.html", "text/html; charset=utf-8"),
+        "/codex-memory/": ("codex-memory.html", "text/html; charset=utf-8"),
+        "/local-ai-coding-memory/": ("local-ai-coding-memory.html", "text/html; charset=utf-8"),
+        "/how-usual-works/": ("how-usual-works.html", "text/html; charset=utf-8"),
+        "/examples/reading-list/": ("examples-reading-list.html", "text/html; charset=utf-8"),
+        "/privacy/": ("privacy.html", "text/html; charset=utf-8"),
+        "/install/": ("install.html", "text/html; charset=utf-8"),
+        "/seo.css": ("public/seo.css", "text/css; charset=utf-8"),
+        "/robots.txt": ("public/robots.txt", "text/plain; charset=utf-8"),
+        "/sitemap.xml": ("public/sitemap.xml", "application/xml; charset=utf-8"),
         "/learn.md": ("public/learn.md", "text/plain; charset=utf-8"),
         "/demo.json": ("public/demo.json", "application/json"),
         "/build.json": ("public/build.json", "application/json"),
@@ -1305,6 +1315,25 @@ class PublicAutopilotHandler(BaseHTTPRequestHandler):
 
     def _serve(self, head=False):
         path = urllib.parse.urlparse(self.path).path
+        slash_pages = {
+            "/claude-code-memory",
+            "/codex-memory",
+            "/local-ai-coding-memory",
+            "/how-usual-works",
+            "/examples/reading-list",
+            "/privacy",
+            "/install",
+        }
+        if path in slash_pages:
+            query = urllib.parse.urlparse(self.path).query
+            destination = path + "/"
+            if query:
+                destination += "?" + query
+            self.send_response(308)
+            self.send_header("Location", destination)
+            self.send_header("Content-Length", "0")
+            self.end_headers()
+            return
         # Keep old installation links usable after the product rename. The target
         # origin is fixed; request headers never choose a redirect destination.
         legacy_host = self.headers.get("Host", "").lower().split(":", 1)[0] in {

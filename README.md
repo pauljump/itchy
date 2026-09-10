@@ -2,6 +2,8 @@
 
 **Your AI should know how you work.**
 
+[Usual](https://tryusual.com) is an open-source local memory skill for Claude Code and Codex. It carries past coding decisions into future builds without adding a hosted inference service.
+
 [Website](https://tryusual.com) · [Learn Usual](LEARN.md) · [Source](https://github.com/pauljump/usual)
 
 Usual analyzes your local Claude and Codex conversations for the moments when an agent

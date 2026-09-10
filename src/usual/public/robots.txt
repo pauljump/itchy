@@ -1,0 +1,9 @@
+# Search engines may crawl and index the public product and documentation pages.
+# AI-use content signals are intentionally left unspecified; changing those is a
+# separate policy decision from ordinary search visibility.
+
+User-agent: *
+Allow: /
+Disallow: /health
+
+Sitemap: https://tryusual.com/sitemap.xml
